@@ -5,7 +5,9 @@
     <title>UCSchoLArships</title>
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
     <link href="landing-page.css" rel="stylesheet" />
+    <link href="./scholarship-overlay.css" rel="stylesheet" type="text/css">
   </head>
 
 <body>
@@ -14,7 +16,7 @@
 <table>
 	<tr>
 		<td class="top-left"><a href="index.html" class="land-button"><b>UCSchoLArships</b></a></td>
-		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder"></a><a href="#" class="grn-button">Logout</a></td>
+		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder"></a><a href="#" class="grn-button" onclick="location.href='../index.html'">Logout</a></td>
 	</tr>
 </table>
 
@@ -53,7 +55,9 @@
 		<td style="width:85%;"><b>Generic Computer Science Scholarship F</b><br>&nbsp;&nbsp;$ 1,000<br>&nbsp;&nbsp;Computer Science Majors Only<br>&nbsp;&nbsp;1 Essay</td>
 	</tr>
 </table>
-		
+
+<script src="../Xiaojian%20Chen/Chatting.js"></script>
+
 <table>
 	<tr>
 		<td style="text-align:center;">
@@ -63,10 +67,57 @@
 	</tr>
 	<tr>
 		<td style="text-align:right;">
-			Questions?&nbsp;&nbsp;<a href="#" class="grn-button">Ask a counselor</a>
+			Questions?&nbsp;&nbsp;<a href="#" class="grn-button" onclick="openChat()">Ask a counselor</a>
 		</td>
 	</tr>
 </table>
+
+<div id="scholarship-modal">
+		<div id="scholarship-content">
+			<div id="scholarship-picture-container">
+				<img src="./ucla_logo.png" id="scholarship-picture">
+			</div>
+
+			<div id="scholarship-name-container">
+				<h1 class="overlay-content">
+					Generic Scholarship
+				</h1>
+				<h2 class="overlay-content" id="amount">
+					$1,500
+				</h2>
+			</div>
+
+			<div id="scholarship-summary-container">
+				<h3 class="overlay-content">Summary</h3>
+				<div class="overlay-content">
+					<span class="overlay-content">1 Essay</span>
+					<span class="overlay-content">1 Interview</span>
+				</div>
+				<p class="overlay-content">
+					This is a generic scholarship with stylings representative of what actual scholarships will open.
+				</p>
+			</div>
+
+			<div id="scholarship-tags-container">
+				<div class="tag"><span class="tag-head"></span><span class="tag-body">Engineers</span></div>
+				<div class="tag"><span class="tag-head"></span><span class="tag-body">Essay</span></div>
+				<div class="tag"><span class="tag-head"></span><span class="tag-body">Interview</span></div>
+				<div class="tag"><span class="tag-head"></span><span class="tag-body">UCLA</span></div>
+			</div>
+
+			<div id="scholarship-percent-container">
+				<p class="overlay-content">65%</p>
+			</div>
+
+			<div id="scholarship-buttons-container">
+				<button id="modal-close" class="buttons">CLOSE</button>
+				<button id="modal-details" class="buttons">DETAILS</button>
+				<button id="modal-apply" class="buttons">APPLY</button>
+			</div>
+		</div>
+	</div>
+
+<script src="./scholarship-overlay.js"></script>
 
 <script>
 var input = document.getElementById("search-box");

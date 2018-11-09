@@ -49,6 +49,11 @@ td {
   border-style: solid solid solid solid;
 }
 
+.main-tr:hover {
+  cursor: pointer;
+  filter: brightness(85%);
+}
+
 img {
   vertical-align: middle;
 }
