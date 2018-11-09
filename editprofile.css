@@ -6,7 +6,7 @@
     border-left: hidden;
     border-top:hidden; 
 }
-.edit_header{
+.custom_header{
     display: flex;
     
 }
@@ -65,7 +65,7 @@ td{
     padding:10px;
     width: 450px;
 }
-.submit_button{
+.custom_button{
     display: flex;
     align-items: center;
     justify-content: center;
