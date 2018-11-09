@@ -1,0 +1,73 @@
+/*Xiaojan Chen 905118702*/
+
+body {
+    background-color: #eee;
+	margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+#main_container{
+    margin-top:100px;
+    margin-bottom:auto;
+}
+h1{
+    text-align:	center;
+    font-size: 250%;
+    font-family: 'Economica', sans-serif;
+}
+
+#profile_creation_container{
+    font-size: 350%;
+    margin: auto;
+    text-align:center;
+    height: 400px;
+    width: 850px;
+
+    overflow-y: scroll;
+
+    border-bottom:2px solid;
+    border-color: gray;
+}
+
+.creation_textarea{
+    width: 700px;
+    height: 40px;
+    line-height:40px;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 3px 3px 3px #888888; 
+    
+}
+
+input::-webkit-input-placeholder{
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    margin:center;
+    line-height:40px;
+}
+
+#creation_summit_btn_container{
+    font-size: 350%;
+    margin: auto;
+    text-align:center;
+    margin-bottom: 50px;
+}
+
+
+#creation_summit_btn {
+    width:250px;
+    height:45px;
+    font-size:25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#chat_open_btn{
+    width:200px;
+    height:35px;
+    font-size:20px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
