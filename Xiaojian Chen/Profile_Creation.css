@@ -64,6 +64,8 @@ input::-webkit-input-placeholder{
 }
 
 #chat_open_btn{
+    display: none;
+    
     width:200px;
     height:35px;
     font-size:20px;
