@@ -24,11 +24,11 @@ input[type="text"]::placeholder, input[type="password"]::placeholder {
     text-transform: uppercase;
 }
 
-input[type="submit"] {
+input[type="submit"], #signupButton {
     background-color: cornflowerblue;
 }
 
-input[type="submit"] {
+input[type="submit"], #signupButton {
     color: white;
     font-size: 12pt;
     width: 85%;

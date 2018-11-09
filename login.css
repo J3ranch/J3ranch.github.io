@@ -11,7 +11,7 @@ button {
     background-color: limegreen
 }
 
-input[type="submit"] {
+input[type="submit"], #loginButton {
     background-color: cornflowerblue
 }
 
