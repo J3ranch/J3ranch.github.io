@@ -70,7 +70,17 @@
 	</tr>
 </table>
 
+<script>
 
+var input = document.getElementById("search-box");
+input.focus();
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+		window.location.href = "index.html";
+    }
+});
+</script>
 
 </body>
 </html>
