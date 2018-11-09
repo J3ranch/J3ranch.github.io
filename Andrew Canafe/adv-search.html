@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>UCSchoLArships - Advanced Search</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"> 
+    <link href="advanced-page.css" rel="stylesheet" />
+  </head>
+
+<body>
+	<table>
+		<colgroup>
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		<col width="5%"><col width="5%">
+		</colgroup>
+		<tr>
+			<td colspan="20" class="adv-title"><b>Advanced Search</b></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align:right;">Include Terms:</td>
+			<td colspan="16"><input type="text" id="inc-terms"></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align:right;">Exclude Terms:</td>
+			<td colspan="16"><input type="text" id="exc-terms"></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align:right;">Sort By:</td>
+			<td colspan="4"><input type="radio" name="option"checked>Newest</td>
+			<td colspan="4"><input type="radio" name="option">Oldest</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align:right;"></td>
+			<td colspan="4"><input type="radio" name="option">Popularity</td>
+			<td colspan="4"><input type="radio" name="option">Recommended</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align:right;"></td>
+			<td colspan="4"><input type="radio" name="option" id="rad1">None</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="4"></td>
+			<td colspan="6" style="text-align:center;"><a href="index.html" class="pal-button">Cancel</a></td>
+			<td colspan="6" style="text-align:center;"><a href="index.html" class="grn-button">Apply</a></td>
+			<td colspan="4"></td>
+		</tr>
+	<table>
+</table>
+
+<script>
+var input = document.getElementById("inc-terms");
+input.focus();
+</script>
+
+</body>
+</html>
