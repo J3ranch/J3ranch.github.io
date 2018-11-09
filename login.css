@@ -1,0 +1,85 @@
+.loginBox {
+    display: grid;
+    grid-template-rows: 0.2fr 1.5fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
+}
+
+button {
+    background-color: limegreen
+}
+
+input[type="submit"] {
+    background-color: cornflowerblue
+}
+
+button, input[type="submit"] {
+    color: white;
+    font-size: 12pt;
+    width: 6.5em;
+    height: 2em;
+    border: 0;
+    box-shadow: 0 1px 5px 2.5px rgba(0,0,0,0.2);
+    margin-top: 0.7em;
+    text-transform: uppercase;
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 12pt;
+    padding: 0.5em;
+    border: 0;
+    box-shadow: 0 1px 5px 2.5px rgba(0,0,0,0.2);
+    width: 100%;
+    text-transform: uppercase;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: darkgray;
+}
+
+#logo {
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+#formButtons {
+    width: 35%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    width: 50%;
+    margin: auto;
+}
+
+h1 {
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
