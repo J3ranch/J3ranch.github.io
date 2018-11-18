@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
+* {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+
+	font-family: 'Economica', sans-serif;
+}
+
+button {
+	height: 100px;
+	width: 200px;
+}
+
 #scholarship-modal {
 	display: none;
 	z-index: 10;
@@ -8,21 +25,18 @@
 
 	justify-content: center;
 	align-items: center;
-
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-
-
-	font-family: 'Economica', sans-serif;
 }
 
-#scholarship-modal #scholarship-content {
-	min-width: 60%;
-	min-height: 75%;
-	height: 75%;
-	width: 60%;
+#scholarship-iframe {
+	width: 65%;
+	height: 70%;
+
+	border: none;
+}
+
+#scholarship-content {
+	min-width: 100%;
+	min-height: 100%;
 
 	background: #fefefe;
 
@@ -31,27 +45,16 @@
 	grid-template-rows: repeat(12, 1fr);
 }
 
-#scholarship-modal #modal-apply {
-	background: #62CB3B;
-	color: white;
-}
-
-#scholarship-modal .buttons {
+.buttons {
 	width: 20%;
-	height: fit-content;
-	padding: 5px 10px 5px 10px;
-	font-size: 16pt;
-	box-shadow: 0px 1px 10px 1px #B9B9B9;
-	font-family: 'Economica', sans-serif;
-	border: none;
 }
 
-#scholarship-modal .buttons:hover {
+.buttons:hover {
 	cursor: pointer;
 	filter: brightness(85%);
 }
 
-#scholarship-modal #scholarship-picture-container {
+#scholarship-picture-container {
 	grid-column: 8/span 5;
 	grid-row: 1/span 4;
 
@@ -60,7 +63,7 @@
 	align-items: center;
 }
 
-#scholarship-modal #scholarship-name-container {
+#scholarship-name-container {
 	grid-column: 1/span 7;
 	grid-row: 1/span 4;
 
@@ -70,12 +73,14 @@
 	align-items: flex-start;
 }
 
-#scholarship-modal #scholarship-summary-container {
+#scholarship-summary-container {
 	grid-column: 1/span 12;
 	grid-row: 5/span 4;
+
+	font-family: "Open Sans", sans-serif;
 }
 
-#scholarship-modal #scholarship-tags-container {
+#scholarship-tags-container {
 	grid-column: 1/span 8;
 	grid-row: 9/span 2;
 
@@ -83,7 +88,7 @@
 	flex-flow: row;
 }
 
-#scholarship-modal #scholarship-percent-container {
+#scholarship-percent-container {
 	grid-column: 9/ span 4;
 	grid-row: 9/span 2;
 
@@ -92,7 +97,7 @@
 	align-items: flex-end;
 }
 
-#scholarship-modal #scholarship-buttons-container {
+#scholarship-buttons-container {
 	grid-column: 1/span 12;
 	grid-row: 11/span 2;
 
@@ -102,7 +107,7 @@
 	align-items: center;
 }
 
-#scholarship-modal #scholarship-picture {
+#scholarship-picture {
 	height: fit-content;
 	width: fit-content;
 
@@ -113,7 +118,7 @@
 	align-items: center;
 }
 
-#scholarship-modal #scholarship-name-container .overlay-content {
+#scholarship-name-container .overlay-content {
 	min-width: 80%;
 	min-height: fit-content;
 	height: fit-content;
@@ -126,19 +131,21 @@
 	margin: 10px;
 	margin-left: 20px;
 	line-height: 32pt;
+
+	font-family: "Open Sans", sans-serif;
 }
 
-#scholarship-modal #scholarship-name-container h1.overlay-content {
+#scholarship-name-container h1.overlay-content {
 	font-size: 28pt;
 }
 
-#scholarship-modal #amount {
+#amount {
 	font-size: 24pt;
 	font-style: italic;
 	color: #62CB3B;
 }
 
-#scholarship-modal #scholarship-summary-container .overlay-content {
+#scholarship-summary-container .overlay-content {
 	width: fit-content;
 	height: fit-content;
 
@@ -146,12 +153,10 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 
-	font-family: "Open Sans", sans-serif;
-
 	margin: 2pt 20px 2pt 20px;
 }
 
-#scholarship-modal #scholarship-summary-container span.overlay-content {
+#scholarship-summary-container span.overlay-content {
 	width: fit-content;
 	height: fit-content;
 
@@ -162,7 +167,7 @@
 	margin: 2pt 20px 2pt 0px;
 }
 
-#scholarship-modal #scholarship-summary-container h3.overlay-content {
+#scholarship-summary-container h3.overlay-content {
 	width: fit-content;
 	height: fit-content;
 
@@ -173,7 +178,7 @@
 	margin: 0pt 20px 10pt 20px;
 }
 
-#scholarship-modal .tag {
+.tag {
 	background: transparent;
 	height: 20px;
 	width: fit-content;
@@ -183,7 +188,7 @@
 	padding: 10px;
 }
 
-#scholarship-modal .tag-head {
+.tag-head {
 	width: 0px;
 	height: 0px;
 
@@ -191,7 +196,7 @@
 	border-right: solid 10px gold;
 }
 
-#scholarship-modal .tag-body {
+.tag-body {
 	height: 18px;
 	width: fit-content;
 
@@ -204,13 +209,11 @@
 	padding: 1px 3px 1px 3px;
 }
 
-#scholarship-modal #scholarship-percent-container .overlay-content {
+#scholarship-percent-container .overlay-content {
 	width: fit-content;
 	height: fit-content;
 
 	font-size: 60pt;
 	font-weight: bold;
 	color: orange;
-
-	margin: 0px;
 }

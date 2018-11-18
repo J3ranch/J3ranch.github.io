@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
     <link href="landing-page.css" rel="stylesheet" />
-    <link href="./scholarship-overlay.css" rel="stylesheet" type="text/css">
+    <link href="./scholarship-host.css" rel="stylesheet" type="text/css">
   </head>
 
 <body>
@@ -72,52 +72,11 @@
 	</tr>
 </table>
 
-<div id="scholarship-modal">
-		<div id="scholarship-content">
-			<div id="scholarship-picture-container">
-				<img src="./ucla_logo.png" id="scholarship-picture">
-			</div>
-
-			<div id="scholarship-name-container">
-				<h1 class="overlay-content">
-					Generic Scholarship
-				</h1>
-				<h2 class="overlay-content" id="amount">
-					$1,500
-				</h2>
-			</div>
-
-			<div id="scholarship-summary-container">
-				<h3 class="overlay-content">Summary</h3>
-				<div class="overlay-content">
-					<span class="overlay-content">1 Essay</span>
-					<span class="overlay-content">1 Interview</span>
-				</div>
-				<p class="overlay-content">
-					This is a generic scholarship with stylings representative of what actual scholarships will open.
-				</p>
-			</div>
-
-			<div id="scholarship-tags-container">
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Engineers</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Essay</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Interview</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">UCLA</span></div>
-			</div>
-
-			<div id="scholarship-percent-container">
-				<p class="overlay-content">65%</p>
-			</div>
-
-			<div id="scholarship-buttons-container">
-				<button id="modal-close" class="buttons">CLOSE</button>
-				<button id="modal-details" class="buttons">DETAILS</button>
-				<button id="modal-apply" class="buttons">APPLY</button>
-			</div>
-		</div>
+	<div id="scholarship-modal">
+		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
 	</div>
 
-<script src="./scholarship-overlay.js"></script>
+	<script src="./scholarship-host.js"></script>
 
 <script>
 var input = document.getElementById("search-box");
