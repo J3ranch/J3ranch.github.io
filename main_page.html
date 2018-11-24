@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UCSchoLArships</title>
+	<link href="./main_page.css" type="text/css" rel="stylesheet">
+	<link href="./style.css" type="text/css" rel="stylesheet">
+	<link href="./scholarship-host.css" type="text/css" rel="stylesheet">
+
+	<script src="./Xiaojian%20Chen/Chatting.js"></script>
+</head>
+<body>
+	<div id="scholarship-modal">
+		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
+	</div>
+
+	<div id="header-container">
+		<div id="site-name" onclick="location.href='./main_page.html'" tabindex="0">
+			UCSchoLArships
+		</div>
+		<div id="profile-logout">
+			<div id="profile-pic" tabindex="0" onclick="location.href='./account_settings.html'"></div>
+			<button class="green-button" id="logout-button" onclick="location.href='./index.html'">LOGOUT</button>
+		</div>
+	</div>
+
+	<div id="search-container">
+		<form>
+			<input type="text" id="searchbar" name="searchbar" placeholder="Search">
+			<a id="submit-search" tabindex="0"> 🔍 </a>
+		</form>
+		<div id="advanced-search-container">
+			<a id="advanced-search" tabindex="0" href="./Andrew%20Canafe/adv-search.html">Advanced Search</a>
+		</div>
+	</div>
+
+	<div id="results-container">
+		<div id="results-table">
+			<div class="scholarship" tabindex="0">
+				<div class="scholarship-img">
+					<img src="./img/ucla_logo.png">
+				</div>
+				<div class="scholarship-overview">
+					<h3>Herbert Fox Scholarship for Engineering Students</h3>
+					<p>$1,500</p>
+					<p>A scholarship for engineers demonstrating financial need.</p>
+					<p>1 Essay</p>
+				</div>
+			</div>
+			<div class="scholarship" tabindex="0">STUFF</div>
+			<div class="scholarship" tabindex="0">STUFF</div>
+			<div class="scholarship" tabindex="0">STUFF</div>
+		</div>
+		<div id="chat-container">
+			<p>Questions?</p>
+			<button id="counselor-button" class="white-button" onclick="openChat()">Ask a Counselor 🎧</button>
+		</div>
+	</div>
+
+	<script src="./scholarship-host.js"></script>
+</body>
+</html>

@@ -154,6 +154,7 @@ td {
 
 #back-button {
 	margin: 25px;
+	height: fit-content;
 }
 
 #image-container {

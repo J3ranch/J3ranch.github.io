@@ -11,12 +11,22 @@ window.onclick = function(event) {
 }
 
 function applyButtons() {
-    btns = document.getElementsByClassName("main-tr");
+    btns = document.getElementsByClassName("scholarship");
 
     for (var i = 0; i < btns.length; i++) {
         btns[i].onclick = function() {
             modal.style.display = "flex";
         }
+
+        btns[i].addEventListener("keyup", function(event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                event.target.click();
+            }
+        });
     }
 }
 

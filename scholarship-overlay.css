@@ -10,30 +10,6 @@
 	font-family: 'Economica', sans-serif;
 }
 
-button {
-	height: 100px;
-	width: 200px;
-}
-
-#scholarship-modal {
-	display: none;
-	z-index: 10;
-	background-color: rgba(0,0,0,0.4);
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	justify-content: center;
-	align-items: center;
-}
-
-#scholarship-iframe {
-	width: 65%;
-	height: 70%;
-
-	border: none;
-}
-
 #scholarship-content {
 	min-width: 100%;
 	min-height: 100%;
@@ -45,15 +21,6 @@ button {
 	grid-template-rows: repeat(12, 1fr);
 }
 
-.buttons {
-	width: 20%;
-}
-
-.buttons:hover {
-	cursor: pointer;
-	filter: brightness(85%);
-}
-
 #scholarship-picture-container {
 	grid-column: 8/span 5;
 	grid-row: 1/span 4;
@@ -61,6 +28,15 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+#scholarship-picture-container img {
+	min-width: 0px;
+	min-height: 0px;
+	width: auto;
+	height: auto;
+	max-width: 65%;
+	max-height: 65%;
 }
 
 #scholarship-name-container {
@@ -105,6 +81,10 @@ button {
 	flex-flow: row;
 	justify-content: space-around;
 	align-items: center;
+}
+
+#scholarship-buttons-container button {
+	width: 25%;
 }
 
 #scholarship-picture {
@@ -165,6 +145,8 @@ button {
 	align-items: flex-start;
 
 	margin: 2pt 20px 2pt 0px;
+
+	font-size: 14pt;
 }
 
 #scholarship-summary-container h3.overlay-content {
@@ -176,6 +158,12 @@ button {
 	align-items: flex-start;
 
 	margin: 0pt 20px 10pt 20px;
+
+	font-size: 16pt;
+}
+
+#scholarship-summary-container p.overlay-content {
+	font-family: "Open Sans", sans-serif;
 }
 
 .tag {
