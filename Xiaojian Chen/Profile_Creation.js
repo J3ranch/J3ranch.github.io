@@ -52,7 +52,7 @@ function summit(){
     writeFirestore("wDnseS1njZWeo0i8kL3a", FN, LN, SH, MJ, DG, GYR, YR);
     setTimeout(function(){
         window.location.href ='../main_page.html';
-    },1000);
+    },500);
 }
 
 
