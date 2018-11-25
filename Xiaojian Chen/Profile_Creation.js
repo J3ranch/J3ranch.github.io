@@ -40,7 +40,9 @@ $( document ).ready(function(){
     
 });
 
+
 function summit(){
+
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
     var SH = document.getElementById("create_school").value;
@@ -48,9 +50,11 @@ function summit(){
     var DG = document.getElementById("create_degree").value;
     var GYR = document.getElementById("create_graduationYear").value;
     var YR = document.getElementById("create_Year").value;
-
+    
     writeFirestore("wDnseS1njZWeo0i8kL3a", FN, LN, SH, MJ, DG, GYR, YR);
-    self.location='../main_page.html';
+    setTimeout(function(){
+        window.location.href ='../main_page.html';
+    },500);
 }
 
 
