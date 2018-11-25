@@ -17,7 +17,6 @@ var config = {
 
 
 $( document ).ready(function(){
-
     $( "#create_degree").autocomplete({
         source: ["Associate of Arts (A.A.)","Associate of Science (A.S.)",
         "Bachelor of Arts (B.A.)","Bachelor of Science degree (B.S.)",
@@ -41,9 +40,7 @@ $( document ).ready(function(){
     
 });
 
-
 function summit(){
-
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
     var SH = document.getElementById("create_school").value;
