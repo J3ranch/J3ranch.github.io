@@ -17,6 +17,7 @@ var config = {
 
 
 $( document ).ready(function(){
+
     $( "#create_degree").autocomplete({
         source: ["Associate of Arts (A.A.)","Associate of Science (A.S.)",
         "Bachelor of Arts (B.A.)","Bachelor of Science degree (B.S.)",
