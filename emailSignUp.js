@@ -154,7 +154,9 @@ $(document).ready(function(){
 			// }).catch(function(error) {
   			// // An error happened.
 			// });
-			window.location.href='Xiaojian Chen\\Profile Creation.html'
+			function redirect(){
+				window.location='Xiaojian Chen\\Profile Creation.html';
+			}
 			$("form")[0].reset();
 		}
 		$('#signupButton').attr('disabled', 'disabled');
