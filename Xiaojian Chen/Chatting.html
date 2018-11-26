@@ -15,7 +15,6 @@
   </head>
   <body>
     
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script src="jquery/js/jquery-1.9.0.min.js"></script>
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="./Chatting.js"></script>
@@ -26,37 +25,27 @@
     <div id ="main_container">
 
       <div id="chat_head">
-        
-        <table>
-          <td>
-            <div id="chat_head_text">
-              Chat with Counselor
-            </div>
-          </td>
-          <td>
-            <div>
-              <button id="clear_btn" type="submit" onclick="clearHistory()">Clear History</button>
-            </div>
-          </td>
-        </table>
+        <div id="chat_head_text">
+          Chat with Counselor
+        </div>
       </div>
 
       <div id="chatbody">
         <div id="chat_content">
-          <div class = "Student_talk"><span>StudentTalk</span></div>
-          <div class = "Counselor_talk"><span>CounselorTalk</span></div>
         </div>
 
       </div>
       <div id = "chat_bottom">
+        <form action name ="chat" method="post">
           <table>
               <td>
-                <textarea id="chat_input" placeholder="Please text here"></textarea>
+                <textarea id="user_chat_box" name="Chatvalue" value="Chat" placeholder="Please text here"></textarea>
               </td>
               <td>
-                <button class="blueBtn" id="chat_send_btn" type="submit" onclick="sendByStudent()"><i class="fas fa-angle-up fa-2x"></i></button>
+                <button class="blueBtn" id="chat_send_btn" type="submit"><i class="fas fa-angle-up fa-2x"></i></button>
               </td>
           </table>
+        </form>
       </div>
     </div>
 

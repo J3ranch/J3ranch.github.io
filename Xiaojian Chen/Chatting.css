@@ -20,7 +20,7 @@ body {
     border-color: gray;
     border-radius:5px;
     -moz-border-radius:5px;
-    box-shadow: 3px 3px 3px gray
+    box-shadow: 3px 3px 1px gray
 }
 
 #chat_head{
@@ -33,36 +33,22 @@ body {
     
     height:30px;
     color: white;
-    
-}
-
-#clear_btn{
-    font-size:12px;
-    margin-bottom:5px;
-    margin-left:95px;
-    width: 100px;
-    height: 25px;
-    border-color:gray;
-    border-radius:5px;
 }
 
 #chatbody{
-    margin:auto;
-    width:350px;
-    height:350px;
-    overflow-y: scroll;
+    width:340px;
+    height:340px;
 }
 
 #chat_bottom{
-    height:67px;
+    height:80px;
     background-color: gray;
     border-top:2px solid;
     border-color:gray;
-    
 }
 
-#chat_input{
-    margin-top:3px;
+#user_chat_box{
+    margin-top:5px;
     margin-bottom:3px;
     width:280px;
     height: 50px;
@@ -82,25 +68,3 @@ body {
     border-color:gray;
     border-radius:10px;
 }
-
-.Counselor_talk{
-    margin:10px; 
- }
- .Counselor_talk{
-     display:inline-block;
-     background:#ef8201;
-     border-radius:10px;
-     color:#fff;
-     padding:5px 10px;
- }
- .Student_talk{
-     margin:10px;
-     text-align:right;
- }
- .Student_talk span{
-     display:inline-block;
-     background:#0181cc;
-     border-radius:10px;
-     color:#fff;
-     padding:5px 10px;
- }
