@@ -15,7 +15,7 @@ input[type="submit"], #loginButton {
     background-color: cornflowerblue
 }
 
-button, input[type="submit"] {
+button, input[type="submit"], #loginButton {
     color: white;
     font-size: 12pt;
     width: 6.5em;
@@ -26,7 +26,7 @@ button, input[type="submit"] {
     text-transform: uppercase;
 }
 
-input[type="text"], input[type="password"] {
+input[type="email"], input[type="password"] {
     font-size: 12pt;
     padding: 0.5em;
     border: 0;
@@ -34,7 +34,7 @@ input[type="text"], input[type="password"] {
     width: 100%;
 }
 
-input[type="text"]::placeholder, input[type="password"]::placeholder {
+input[type="email"]::placeholder, input[type="password"]::placeholder {
     color: darkgray;
     text-transform: uppercase;
 }
@@ -53,7 +53,7 @@ input[type="text"]::placeholder, input[type="password"]::placeholder {
     grid-row-end: 2;
 }
 
-form {
+#login-form {
     display: flex;
     flex-direction: column;
     grid-column-start: 2;
@@ -82,4 +82,10 @@ h1 {
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 1;
+}
+
+#incorrect-email, #incorrect-password {
+    padding: 10px;
+    color: red;
+    display: none;
 }

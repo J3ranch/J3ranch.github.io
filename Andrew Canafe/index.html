@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>UCSchoLArships</title>
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
-    <link href="landing-page.css" rel="stylesheet" />
-    <link href="./scholarship-host.css" rel="stylesheet" type="text/css">
-    <link href="../style.css" rel="stylesheet" type="text/css">
-  </head>
+	<head>
+		<meta charset="UTF-8">
+		<title>UCSchoLArships</title>
+		<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
+		<link href="landing-page.css" rel="stylesheet" />
+		<link href="./scholarship-host.css" rel="stylesheet" type="text/css">
+    	<link href="../style.css" rel="stylesheet" type="text/css">
+		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+        <script>
+			// Initialize Firebase
+            var config = {
+				apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+                authDomain: "ucscholarship-10628.firebaseapp.com",
+                databaseURL: "https://ucscholarship-10628.firebaseio.com",
+                projectId: "ucscholarship-10628",
+                storageBucket: "ucscholarship-10628.appspot.com",
+                messagingSenderId: "877779845443"
+            };
+            firebase.initializeApp(config);
+		</script>
+  		<script src="../scholarship-host.js"></script>
+  	</head>
 
 <body>
 
@@ -17,7 +31,7 @@
 <table>
 	<tr>
 		<td class="top-left"><a href="index.html" class="land-button"><b>UCSchoLArships</b></a></td>
-		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><button class="green-button" onclick="location.href='../index.html'">Logout</button></td>
+		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><button class="green-button" onclick="logout()">Logout</button></td>
 	</tr>
 </table>
 
@@ -76,8 +90,6 @@
 	<div id="scholarship-modal">
 		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
 	</div>
-
-	<script src="./scholarship-host.js"></script>
 
 <script>
 var input = document.getElementById("search-box");
