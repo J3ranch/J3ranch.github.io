@@ -83,21 +83,21 @@ body {
     border-radius:10px;
 }
 
-.Counselor_talk{
+.Counselor{
     margin:10px; 
  }
- .Counselor_talk{
+ .Counselor span{
      display:inline-block;
      background:#ef8201;
      border-radius:10px;
      color:#fff;
      padding:5px 10px;
  }
- .Student_talk{
+ .Student{
      margin:10px;
      text-align:right;
  }
- .Student_talk span{
+ .Student span{
      display:inline-block;
      background:#0181cc;
      border-radius:10px;

@@ -15,11 +15,14 @@ var config = {
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
 
+
 var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need update
+var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
 
 
 $(document).ready(function(){
-    LoadFireStore_updateChat( User_id); //load the chat history
+    console.log("start");
+    LoadFireStore_updateChat(); //load the chat history
 })
 
 //For open chat window
@@ -34,22 +37,23 @@ function sendByStudent(){
     var chat_input = document.getElementById("chat_input");
 
     if(chat_input.value==""){
-        // the alert for empty send
+        //if user text is empty
         alert("The text could not be empty!")
     }else{
-        //insert the content into chat window
-        insContent('Student_talk',chat_input.value);
         //save the content to firestore
-        writeFirestore_chatHistory( User_id,"Student",chat_input.value,myDate.toLocaleString())
+        writeFirestore_chatHistory("Student",chat_input.value,myDate.toLocaleString())
     }
     //clean the textarea
     chat_input.value = null;
     chat_input.select();
 }
 
-//for the clear History button(in Chatting)
-function clearHistory(){
-    ClearFireStore_clearHistory(User_id)
+//for the clear History button
+function clearHistory (){
+    var c=confirm("Please confirm that you want to clear the chat history!")
+    if (c == true){
+        ClearFireStore_clearHistory();
+    }
 }
 
 //insert the content into chat window
@@ -58,45 +62,48 @@ function insContent(senderClass, chatInput){
     var content = document.getElementById("chat_content");
     var str = "<div class = "+senderClass+"><span>"+chatInput+"</span></div>";
     content.innerHTML = content.innerHTML + str;
-    chatbody.scrollTop = chatbody.scrollHeight;
+    chatbody.scrollTop = chatbody.scrollHeight;     //scroll down to the latest content automatically
 }
 
 //save the content to firestore
-function writeFirestore_chatHistory(id,sender,content,time){
-    var ref =firestore.collection("users").doc(id).collection("Chat History").doc()
-    ref.set({
+function writeFirestore_chatHistory(sender,content,time){
+    ref.doc().set({
         Sender: sender,
         Content: content,
         Time: time
     })
-    console.log("New content: \""+content+"\" is sent at "+ time);
+    //console.log("New content: \""+content+"\" is sent at "+ time);
     //console.log("New content:\""+content+"\"; Sent by:"+sender+"; Time:"+time);
 }
  
-//load firestore; incomplete!!!
-function LoadFireStore_updateChat(id){
-    var ref =firestore.collection("users").doc(id).collection("Chat History");
-    ref.onSnapshot(function(doc){
-        if (doc && doc.exists){
-            console.log("load completed!");
+//real-time load firestore
+function LoadFireStore_updateChat(){
+    ref.orderBy("Time").onSnapshot(snapshot =>{
+        let changes = snapshot.docChanges();
+        changes.forEach(change =>{
+            var Chatdata  = change.doc.data()
 
-        }else{
-            console.log("No chat history!");
-        }
+            console.log(change.type)
+            console.log(Chatdata)
 
+            if(change.type =="added"){
+                //insert the content to chatbox if it is added
+                insContent(Chatdata.Sender, Chatdata.Content)
+            
+            }else if (change.type =="removed"){
+                //clear the chatbox
+                document.getElementById("chat_content").innerHTML =null;
+            }
+        })
     })
-
 }
 
-//clear the chat history (firestore)
-function ClearFireStore_clearHistory(id){
-    var ref = firestore.collection("users").doc(id).collection("Chat History");
+//clear the chat history (Firestore )
+function ClearFireStore_clearHistory(){
     ref.get().then(function(Snapshot){
         Snapshot.forEach(function(doc){
-            var contentid = doc.id;
-            ref.doc(contentid).delete();
+            ref.doc(doc.id).delete();
         });
     })
-    console.log("Chat Histroy is clear!");
-   
+    console.log("Firesotre Chat Histroy is clear!");
 }
