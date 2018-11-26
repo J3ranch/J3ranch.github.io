@@ -101,39 +101,33 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-	// $(function() {
 	
-	// $("#confirmPassword").keyup(function() {
-	// 	var password = $("#password").val();
-	// 	$("#er").html(password == $(this).val()
-	// 	    ? "Passwords match."
-	// 	    : "Passwords do not match!"
-	// 	);
-	//  });
-	// });
 	$("#signupButton").click(function(){
+		
 		var password = $("#password").val();
 		var confirmPassword = $("#confirmPassword").val();
 		var email = $("#email").val();
 		var confirmEmail = $("#confirmEmail").val();
 		var showError = document.createElement('p');
+		
+		//check password mismatch
 		if(!(password).match(confirmPassword)){
-			
 			$(this).closest('form').find("input[type=password], textarea").val("");
 			$(showError).addClass('error-message');
 			$(showError).text('*Error: Password mismatch');
 			$("#showErrorAfterSubmit").html(showError);
 		}
-	
+		
+		//check email mismatch
 		else if(!(email).match(confirmEmail)){
-
 			$(this).closest('form').find("input[type=password], textarea").val("");
 			$(this).closest('form').find("input[type=email], textarea").val("");
 			$(showError).addClass('error-message');
 			$(showError).text("*Error: Email mismatch");
 			$("#showErrorAfterSubmit").replaceWith(showError);
 		}
+		
+		//submit the form to database after all the fields are validated
 		else{
 			firebase.auth().createUserWithEmailAndPassword(email, password)
 			.catch(function(error) {
@@ -154,20 +148,11 @@ $(document).ready(function(){
 			// }).catch(function(error) {
   			// // An error happened.
 			// });
-			function redirect(){
-				window.location='Xiaojian Chen\\Profile Creation.html';
-			}
-			$("form")[0].reset();
+	
+			window.location.href='Xiaojian Chen\\Profile Creation.html';
+			
+			$("form")[0].reset();//reset all fields
 		}
-		$('#signupButton').attr('disabled', 'disabled');
+		$('#signupButton').attr('disabled', 'disabled');//disabled submit button
 	});
-// 	var input = document.getElementById("#signupButton");
-//   	input.addEventListener("keyup", function(event) 
-//   	{
-//     		event.preventDefault();
-//     		if (event.keyCode === 13) 
-//     	{
-//         	document.getElementById("signupButton").click();
-//     	}
-//   })
 })
