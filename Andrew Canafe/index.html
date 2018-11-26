@@ -7,8 +7,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
 		<link href="landing-page.css" rel="stylesheet" />
-		<link href="./scholarship-overlay.css" rel="stylesheet" type="text/css">
-		<!-- <script src="../login.js"></script> -->
+		<link href="./scholarship-host.css" rel="stylesheet" type="text/css">
+    	<link href="../style.css" rel="stylesheet" type="text/css">
 		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
         <script>
 			// Initialize Firebase
@@ -22,8 +22,8 @@
             };
             firebase.initializeApp(config);
 		</script>
-  		<script src="scholarship-overlay.js"></script>
-  </head>
+  		<script src="../scholarship-host.js"></script>
+  	</head>
 
 <body>
 
@@ -31,7 +31,7 @@
 <table>
 	<tr>
 		<td class="top-left"><a href="index.html" class="land-button"><b>UCSchoLArships</b></a></td>
-		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><a href="#" class="grn-button" onclick="logout()">Logout</a></td>
+		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><button class="green-button" onclick="logout()">Logout</button></td>
 	</tr>
 </table>
 
@@ -82,70 +82,14 @@
 	</tr>
 	<tr>
 		<td style="text-align:right;">
-			Questions?&nbsp;&nbsp;<a href="#" class="grn-button" onclick="openChat()">Ask a counselor</a>
+			Questions?&nbsp;&nbsp;<button href="#" class="white-button" onclick="openChat()">Ask a counselor</button>
 		</td>
 	</tr>
 </table>
 
-<div id="scholarship-modal">
-		<div id="scholarship-content">
-			<div id="scholarship-picture-container">
-				<img src="./ucla_logo.png" id="scholarship-picture">
-			</div>
-
-			<div id="scholarship-name-container">
-				<h1 class="overlay-content">
-					Generic Scholarship
-				</h1>
-				<h2 class="overlay-content" id="amount">
-					$1,500
-				</h2>
-			</div>
-
-			<div id="scholarship-summary-container">
-				<h3 class="overlay-content">Summary</h3>
-				<div class="overlay-content">
-					<span class="overlay-content">1 Essay</span>
-					<span class="overlay-content">1 Interview</span>
-				</div>
-				<p class="overlay-content">
-					This is a generic scholarship with stylings representative of what actual scholarships will open.
-				</p>
-			</div>
-
-			<div id="scholarship-tags-container">
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Engineers</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Essay</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">Interview</span></div>
-				<div class="tag"><span class="tag-head"></span><span class="tag-body">UCLA</span></div>
-			</div>
-
-			<div id="scholarship-percent-container">
-				<p class="overlay-content">65%</p>
-			</div>
-
-			<div id="scholarship-buttons-container">
-				<button id="modal-close" class="buttons">CLOSE</button>
-				<button id="modal-details" class="buttons">DETAILS</button>
-				<button id="modal-apply" class="buttons">APPLY</button>
-			</div>
-		</div>
+	<div id="scholarship-modal">
+		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
 	</div>
-
-	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-		apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
-		authDomain: "ucscholarship-10628.firebaseapp.com",
-		databaseURL: "https://ucscholarship-10628.firebaseio.com",
-		projectId: "ucscholarship-10628",
-		storageBucket: "ucscholarship-10628.appspot.com",
-		messagingSenderId: "877779845443"
-	  };
-	  firebase.initializeApp(config);
-	</script>
-
 
 <script>
 var input = document.getElementById("search-box");

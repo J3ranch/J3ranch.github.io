@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
+.white-button {
+	min-height: fit-content;
+	min-width: fit-content;
+	height: fit-content;
+	padding: 5px 10px 5px 10px;
+	font-size: 16pt;
+	box-shadow: 0px 1px 10px 1px #B9B9B9;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+
+	background: white;
+	color: #B7B7B7;
+}
+
+.white-button:disabled {
+	background: #666666;
+	color: #434343;
+}
+
+.green-button {
+	min-height: fit-content;
+	min-width: fit-content;
+	height: fit-content;
+	padding: 5px 10px 5px 10px;
+	font-size: 16pt;
+	box-shadow: 0px 1px 10px 1px #B9B9B9;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+
+	background: #62CB3B;
+	color: white;
+}
+
+.green-button:disabled {
+	background: #274E13;
+	color: #B7B7B7;
+}
+
+.blue-button {
+	min-height: fit-content;
+	min-width: fit-content;
+	height: fit-content;
+	padding: 5px 10px 5px 10px;
+	font-size: 16pt;
+	box-shadow: 0px 1px 10px 1px #B9B9B9;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+
+	background: #4A86E8;
+	color: white;
+}
+
+.blue-button:disabled {
+	background: #1B4587;
+	color: #B7B7B7;
+}
+
+.white-button:hover:not(:disabled),
+.green-button:hover:not(:disabled),
+.blue-button:hover:not(:disabled),
+.white-button:focus,
+.green-button:focus,
+.blue-button:focus {
+	cursor: pointer;
+	filter: brightness(90%);
+}
+
+*:disabled {
+	cursor: default;
+}	

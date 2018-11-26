@@ -1,6 +1,11 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-color: #eee;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
+  height: 100%;
 }
 
 h2 {
@@ -51,7 +56,7 @@ td {
 
 .main-tr:hover {
   cursor: pointer;
-  filter: brightness(85%);
+  filter: brightness(90%);
 }
 
 img {
