@@ -40,6 +40,8 @@ $( document ).ready(function(){
     
 });
 
+var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user
+
 function summit(){
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
@@ -49,15 +51,15 @@ function summit(){
     var GYR = document.getElementById("create_graduationYear").value;
     var YR = document.getElementById("create_Year").value;
     
-    writeFirestore("wDnseS1njZWeo0i8kL3a", FN, LN, SH, MJ, DG, GYR, YR);
+    writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
     setTimeout(function(){
         window.location.href ='../main_page.html';
     },1000);
 }
 
 
-function writeFirestore(key, firstName, lastName, school, major, degree, graduationYear, Year){
-    var ref = firestore.collection("users").doc(key)
+function writeFirestore_profile(id, firstName, lastName, school, major, degree, graduationYear, year){
+    var ref = firestore.collection("users").doc(id)
     ref.set({
         First_Name: firstName,
         Last_Name: lastName,
@@ -65,6 +67,7 @@ function writeFirestore(key, firstName, lastName, school, major, degree, graduat
         Major: major,
         Degree: degree,
         Graduation_Year: graduationYear,
-        Year: Year
+        Year: year
     })
+    console.log("Profile Creation Saved!");
 }
