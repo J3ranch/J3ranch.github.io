@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>UCSchoLArships</title>
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
-    <link href="landing-page.css" rel="stylesheet" />
-    <link href="./scholarship-overlay.css" rel="stylesheet" type="text/css">
+	<head>
+		<meta charset="UTF-8">
+		<title>UCSchoLArships</title>
+		<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
+		<link href="landing-page.css" rel="stylesheet" />
+		<link href="./scholarship-overlay.css" rel="stylesheet" type="text/css">
+		<!-- <script src="../login.js"></script> -->
+		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+        <script>
+			// Initialize Firebase
+            var config = {
+				apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+                authDomain: "ucscholarship-10628.firebaseapp.com",
+                databaseURL: "https://ucscholarship-10628.firebaseio.com",
+                projectId: "ucscholarship-10628",
+                storageBucket: "ucscholarship-10628.appspot.com",
+                messagingSenderId: "877779845443"
+            };
+            firebase.initializeApp(config);
+		</script>
+  		<script src="scholarship-overlay.js"></script>
   </head>
 
 <body>
@@ -16,7 +31,7 @@
 <table>
 	<tr>
 		<td class="top-left"><a href="index.html" class="land-button"><b>UCSchoLArships</b></a></td>
-		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><a href="#" class="grn-button" onclick="location.href='../index.html'">Logout</a></td>
+		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><a href="#" class="grn-button" onclick="logout()">Logout</a></td>
 	</tr>
 </table>
 
@@ -117,7 +132,20 @@
 		</div>
 	</div>
 
-<script src="./scholarship-overlay.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+		authDomain: "ucscholarship-10628.firebaseapp.com",
+		databaseURL: "https://ucscholarship-10628.firebaseio.com",
+		projectId: "ucscholarship-10628",
+		storageBucket: "ucscholarship-10628.appspot.com",
+		messagingSenderId: "877779845443"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
 
 <script>
 var input = document.getElementById("search-box");
