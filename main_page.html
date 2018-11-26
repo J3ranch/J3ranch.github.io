@@ -2,15 +2,33 @@
 <html>
 <head>
 	<title>UCSchoLArships</title>
-	<link href="./main_page.css" type="text/css" rel="stylesheet">
 	<link href="./style.css" type="text/css" rel="stylesheet">
-	<link href="./scholarship-host.css" type="text/css" rel="stylesheet">
+	<link href="./main_page.css" type="text/css" rel="stylesheet">
+	<link href="./scholarship_host.css" type="text/css" rel="stylesheet">
+
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-firestore.js"></script>
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+	    authDomain: "ucscholarship-10628.firebaseapp.com",
+	    databaseURL: "https://ucscholarship-10628.firebaseio.com",
+	    projectId: "ucscholarship-10628",
+	    storageBucket: "ucscholarship-10628.appspot.com",
+	    messagingSenderId: "877779845443"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 
 	<script src="./Xiaojian%20Chen/Chatting.js"></script>
 </head>
 <body>
 	<div id="scholarship-modal">
-		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
+		<iframe id="scholarship-iframe" src=""></iframe>
 	</div>
 
 	<div id="header-container">
@@ -25,30 +43,30 @@
 
 	<div id="search-container">
 		<form>
-			<input type="text" id="searchbar" name="searchbar" placeholder="Search">
+			<input type="text" id="searchbar" name="searchbar" placeholder=" Search" autocomplete="off">
 			<a id="submit-search" tabindex="0"> 🔍 </a>
 		</form>
 		<div id="advanced-search-container">
+			<a id="reset-search" tabindex="0" href="" onclick="return false;">Clear Search</a>
 			<a id="advanced-search" tabindex="0" href="./Andrew%20Canafe/adv-search.html">Advanced Search</a>
 		</div>
 	</div>
 
 	<div id="results-container">
 		<div id="results-table">
-			<div class="scholarship" tabindex="0">
-				<div class="scholarship-img">
-					<img src="./img/ucla_logo.png">
+			<div id="loader">
+				<div class="loading">
+					<div class="loading-bar"></div>
+					<div class="loading-bar"></div>
+					<div class="loading-bar"></div>
+					<div class="loading-bar"></div>
 				</div>
-				<div class="scholarship-overview">
-					<h3>Herbert Fox Scholarship for Engineering Students</h3>
-					<p>$1,500</p>
-					<p>A scholarship for engineers demonstrating financial need.</p>
-					<p>1 Essay</p>
-				</div>
+				<div id="long-load">The server is taking a while to respond...<br/>Thank you for your patience.</div>
 			</div>
-			<div class="scholarship" tabindex="0">STUFF</div>
-			<div class="scholarship" tabindex="0">STUFF</div>
-			<div class="scholarship" tabindex="0">STUFF</div>
+			<div id="no-results">
+				Sorry, we couldn't find any scholarships that matched your search.<br/>
+				Please try another search or contact support.
+			</div>
 		</div>
 		<div id="chat-container">
 			<p>Questions?</p>
@@ -56,6 +74,6 @@
 		</div>
 	</div>
 
-	<script src="./scholarship-host.js"></script>
+	<script src="./scholarship_host.js"></script>
 </body>
 </html>
