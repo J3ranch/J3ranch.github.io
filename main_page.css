@@ -45,10 +45,11 @@ html, body {
 }
 
 #profile-pic {
-	height: 0px;
-	width: 0px;
+	min-height: 0px;
+	min-width: 0px;
+	height: 70px;
+	width: 70px;
 
-	border: solid 35px gray;
 	border-radius: 50%;
 }
 
@@ -235,11 +236,25 @@ html, body {
 	font-family: "Open Sans", sans-serif;
 
 	font-size: 12pt;
+
+	margin: 0px;
+	margin-bottom: 18px;
+}
+
+.scholarship-info {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.scholarship-info p {
+	width: 50%;
 }
 
 .scholarship-overview p.tags {
 	font-weight: bold;
 	color: #FFC540;
+	filter: brightness(90%);
 }
 
 #chat-container {
@@ -294,7 +309,13 @@ html, body {
 }
 
 .award {
+	font-weight: bold;
 	color: #62CB3B;
+}
+
+.deadline {
+	font-weight: bold;
+	color: #DF525E;
 }
 
 #no-results {

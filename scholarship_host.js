@@ -57,7 +57,7 @@ function applyButtons() {
     document.getElementById("reset-search").addEventListener("click", function(e) {
         document.getElementById("no-results").style.display = "none";
         document.getElementById("searchbar").value = ""
-        search({keywords: [""], empty_search: true});
+        search({keywords: [""]});
     });
 
     document.getElementById("reset-search").addEventListener("keydown", function(e) {
@@ -68,12 +68,17 @@ function applyButtons() {
 }
 
 function getAllScholarships() {
+    var today = new Date();
     clearResults();
 
     db.collection("scholarships").orderBy("name")
     .get().then(function(query) {
         query.forEach(function(doc) {
-            addScholarship(doc);
+            var deadline;
+            eval("deadline = new Date('" + doc.data().deadline + "T23:59:59')");
+
+            if (deadline > today)
+                addScholarship(doc);
         })
     })
     .then(function() {
@@ -82,18 +87,31 @@ function getAllScholarships() {
 }
 
 function addScholarship(doc) {
+    var date;
+    eval("date = new Date('" + doc.data().deadline + "T00:00:00')");
+    var deadlineDate = date.toLocaleString("en-us", {
+        month: "short",
+        year: "numeric",
+        day: "numeric"
+    });
+
     var scholarship = document.createElement("div"); 
     scholarship.setAttribute("class", "scholarship"); scholarship.setAttribute("sid", doc.data().sid); scholarship.setAttribute("tabIndex", "0");
     var imageContainer = document.createElement("div"); imageContainer.setAttribute("class", "scholarship-img");
     var image = document.createElement("img"); image.setAttribute("src", doc.data().image);
     var overview = document.createElement("div"); overview.setAttribute("class", "scholarship-overview");
+    var majorInfo = document.createElement("div"); majorInfo.setAttribute("class", "scholarship-info");
     var name = document.createElement("h3"); name.innerHTML = doc.data().name;
     var award = document.createElement("p"); award.innerHTML = "$" + doc.data().award.toLocaleString("en"); award.setAttribute("class", "award");
+    var deadline = document.createElement("p"); deadline.innerHTML = "Deadline: " + deadlineDate; deadline.setAttribute("class", "deadline");
     var oneLine = document.createElement("p"); oneLine.innerHTML = doc.data().one_line;
-    var tags = document.createElement("p"); tags.innerHTML = doc.data().tags.join(", "); tags.setAttribute("class", "tags");
+    var tags = document.createElement("p"); tags.innerHTML = "Tags: " + doc.data().tags.join(", "); tags.setAttribute("class", "tags");
+
+    majorInfo.appendChild(award);
+    majorInfo.appendChild(deadline);
 
     overview.appendChild(name);
-    overview.appendChild(award);
+    overview.appendChild(majorInfo);
     overview.appendChild(oneLine);
     overview.appendChild(tags);
 
@@ -168,12 +186,15 @@ function validateSearch(searchbar) {
 }
 
 function search(search) {
+    // Required Params and Related Variables
+    var today = new Date();
     var keywords = search.keywords;
     var results = [];
 
-    // default optional params
+    // Default Optional Params
     var minAward = search.hasOwnProperty("min_award") ? search.min_award : 0;
     var maxEssays = search.hasOwnProperty("max_essays") ? search.max_essays : 999;
+    var major = search.hasOwnProperty("major") ? search.major : "All";
 
     document.getElementById("long-load").style.visibility = "hidden";
     document.getElementById("loader").style.display = "flex";
@@ -186,17 +207,19 @@ function search(search) {
     .orderBy("award", "desc")
     .get().then(function(query) {
         query.forEach(function(doc) {
+            // Deadline Filter
+            var deadline;
+            eval("deadline = new Date('" + doc.data().deadline + "T23:59:59')");
+            if (deadline < today) return;
+
             // Optional Param Filter
             if (doc.data().award < minAward) return;
             if (doc.data().requirements.essays > maxEssays) return;
+            if (major !== "All" && doc.data().requirements.major !== "All" && doc.data().requirements.major !== major) return;
 
             // Keyword search
             keywords.forEach(function(term) {
-                if (search.hasOwnProperty("empty_search") && search.empty_search) {
-                    if (!results.includes(doc))
-                        results.push(doc); return;
-                }
-                else if (doc.data().name.toLowerCase().includes(term.toLowerCase())) {
+                if (doc.data().name.toLowerCase().includes(term.toLowerCase())) {
                     if (!results.includes(doc))
                         results.push(doc); return;
                 }
@@ -241,12 +264,12 @@ function clearResults() {
         oldResults[0].parentNode.removeChild(oldResults[0]);
 }
 
+
+// Run on Start 
 var serverTimeout = setTimeout(function() {
     document.getElementById("long-load").style.visibility = "visible";
 }, 10000);
 
-
-// run on start
 if (window.addEventListener) {
     window.addEventListener("message", onMessage, false);        
 } 

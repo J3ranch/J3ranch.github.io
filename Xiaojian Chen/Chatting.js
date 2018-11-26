@@ -9,7 +9,12 @@ var config = {
     storageBucket: "ucscholarship-10628.appspot.com",
     messagingSenderId: "877779845443"
   };
-  firebase.initializeApp(config);
+
+try {
+    firebase.initializeApp(config);
+} catch (error) {
+
+}
 
   var firestore = firebase.firestore();
   const settings = {/* your settings... */ timestampsInSnapshots: true};
@@ -20,7 +25,7 @@ var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need upd
 var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
 
 
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function(){
     console.log("start");
     LoadFireStore_updateChat(); //load the chat history
 })
