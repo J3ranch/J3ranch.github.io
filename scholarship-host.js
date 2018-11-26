@@ -1,23 +1,3 @@
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) 
-    {
-		console.log("Logged in");
-		document.getElementById("search-box").value = user.email;
-    }
-    else
-    {
-        console.log("Not logged in");
-        window.location='../index.html';
-    }
-});
-
-function logout() {
-
-    console.log("Logout")
-
-    firebase.auth().signOut();
-}
-
 // Get the modal
 var modal = document.getElementById('scholarship-modal');
 

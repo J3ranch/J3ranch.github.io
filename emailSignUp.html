@@ -1,44 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    	<title>UCSchoLArships - Email Sign Up</title>
-    	<meta charset="UTF-8">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
-	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="emailSignUp.css"/>
-	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+    <title>UCSchoLArships - Email Sign Up</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="emailSignUp.css" />
 </head>
-</head>
-<script>
-	var config = {
-		apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
-		authDomain: "ucscholarship-10628.firebaseapp.com",
-		databaseURL: "https://ucscholarship-10628.firebaseio.com",
-		projectId: "ucscholarship-10628",
-		storageBucket: "ucscholarship-10628.appspot.com",
-		messagingSenderId: "877779845443"
-	};
-	firebase.initializeApp(config);
-</script>
 <body>
-	<h1>Email Sign Up</h1>
-	<div>
-		<p id="showErrorAfterSubmit"></p>
-		<form class= "validate" action="" method="POST">
-			<input type="text" id="username" name ="username" placeholder="Username" pattern="[a-zA-Z0-9_-]{6,}" title="*Your username must be at least 6 characters" required>
-			<input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="password" name ="password" required title="*Your password must be at least 6 characters as well as contain
-			at least one uppercase, one lowercase, and one number." placeholder="Password">
-			<input type="password" id="confirmPassword" name ="confirmPassword" placeholder="Confirm Password" required>
-			<input type="email" id="email" name ="email" required placeholder="Email">
-			<input type="email" id="confirmEmail" name ="confirmEmail" required placeholder="Confirm Email">
-			<!-- <input type="submit" value="Sign Up"> -->
-			<div id="custom_btn">
-			<button type="button" id="signupButton" disabled="disabled">Sign Up</button>
-		</div>
-		</form>
-		
-	</div>
-	<script src="./emailSignUp.js"></script>
-	</body>
+    <h1>Email Sign Up</h1>
+    <div>
+        <form action="" method="POST">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="confirmEmail" placeholder="Confirm Email">
+            <!-- <input type="submit" value="Sign Up"> -->
+            <button type="button" id="signupButton" onclick="window.location.href='Xiaojian Chen\\Profile Creation.html'">Sign Up</button>            
+        </form>
+    </div>
+</body>
 </html>

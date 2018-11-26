@@ -4,92 +4,42 @@ div {
 }
 
 form {
-    display: inline-block;
-    /* flex-direction: column;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 18em; */
-    margin-bottom: 1em;
-    padding: 0.25em 0.5em;
-    width: 100%;
+    height: 18em;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {   
+input[type="text"], input[type="password"] {
     font-size: 12pt;
     padding: 0.5em;
     border: 0;
     box-shadow: 0 1px 5px 2.5px rgba(0,0,0,0.2);
     width: 100%;
-    margin-top: 15px;
-}
-p {
-    margin:5px;
 }
 
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown){
-    box-shadow: 0 1px 5px 2.5px pink;
-}
-
-input[type="text"]::placeholder, input[type="password"]::placeholder,input[type="email"]::placeholder {
+input[type="text"]::placeholder, input[type="password"]::placeholder {
     color: darkgray;
     text-transform: uppercase;
 }
 
-#custom_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-}
-input[type="submit"], #signupButton:disabled {
-    background-color: darkgray;
-    position: block;
-    color: white;
-    font-size: 12pt;
-    width: 10em;
-    height: 35px;
-    border: 0;
-    box-shadow: 0 1px 5px 2.5px rgba(0,0,0,0.2);
-    margin-top: 0.7em;
-    text-transform: uppercase;
-    max-width: 65%;
+input[type="submit"], #signupButton {
+    background-color: cornflowerblue;
 }
 
-input[type="submit"], #signupButton:enabled {
-    position: block;
-    background-color: cornflowerblue;
+input[type="submit"], #signupButton {
     color: white;
     font-size: 12pt;
-    width: 10em;
-    height: 35px;
+    width: 85%;
+    height: 2em;
     border: 0;
     box-shadow: 0 1px 5px 2.5px rgba(0,0,0,0.2);
     margin-top: 0.7em;
     text-transform: uppercase;
-    max-width: 65%;
+    max-width: 60%;
 }
 
 h1 {
     text-align: center;
-}
-
-textarea:focus, input:focus{
-    outline: none;
-}
-
-input:required:valid, textarea:required:valid {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
-    background-repeat: no-repeat;
-    background: #fff;
-    box-shadow: 0 0 5px #5cd053;
-    border-color: #5cd053;  
- }
-
-.error-message {
-    color: red;
-    font-style: italic;
- 
 }

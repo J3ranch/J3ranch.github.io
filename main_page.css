@@ -119,8 +119,7 @@ html, body {
 	border: solid 1px lightgray;
 	box-shadow: 0px 1px 10px 1px #B9B9B9;
 
-	font-family: "Open Sans", sans-serif;
-	font-size: 16pt;
+	font-size: 24pt;
 
 	padding: 0px;
 	margin: 0px;
@@ -130,17 +129,7 @@ html, body {
 	width: 50%;
 
 	display: flex;
-	justify-content: space-between;
-}
-
-#advanced-search-container a {
-	color: #4A86E8;
-}
-
-#reset-search {
-	margin: 5px 0px 5px 0px;
-
-	font-size: 16pt;
+	justify-content: flex-end;
 }
 
 #advanced-search {
@@ -171,17 +160,10 @@ html, body {
 	box-shadow: 0px 1px 10px 1px #B9B9B9;
 
     overflow-y: scroll;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-flow: column;
 }
 
 .scholarship {
 	height: 35%;
-	max-height: 35%;
-	width: 100%;
 
 	background: white;
 	border: #EFEFEF;
@@ -193,7 +175,6 @@ html, body {
 	align-items: center;
 
 	overflow: hidden;
-	z-index: 1;
 }
 
 .scholarship:hover,
@@ -225,21 +206,8 @@ html, body {
 	flex-grow: 7;
 }
 
-.scholarship-overview h3 {
-	font-weight: bold;
-	font-size: 18pt;
-	margin: 18px 0px 18px 0px;
-}
-
 .scholarship-overview p {
 	font-family: "Open Sans", sans-serif;
-
-	font-size: 12pt;
-}
-
-.scholarship-overview p.tags {
-	font-weight: bold;
-	color: #FFC540;
 }
 
 #chat-container {
@@ -262,45 +230,3 @@ html, body {
 	font-size: 12pt;
 }
 
-#loader {
-	min-height: 60vh;
-	height: 60vh;
-	width: 60vw;
-	position: absolute;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column;
-}
-
-.loading {
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-#long-load {
-	color: #A7A7A7;
-
-	text-align: center;
-	font-size: 16pt;
-
-	height: fit-content;
-
-	margin: 5px;
-
-	display: flex;
-	visibility: hidden;
-}
-
-.award {
-	color: #62CB3B;
-}
-
-#no-results {
-	text-align: center;
-	font-size: 16pt;
-	color: #DF525E;
-
-	display: none;
-}
