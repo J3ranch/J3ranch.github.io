@@ -156,11 +156,7 @@ $(document).ready(function(){
 			// });
 			function onload()
 			{
-    				var user = firebase.auth().currentUser;
-    				if (user) 
-    				{	
        				window.location='Xiaojian Chen\\Profile Creation.html';
-    				}
 			}
 			$("form")[0].reset();
 		}
