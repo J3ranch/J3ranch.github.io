@@ -149,7 +149,7 @@ $(document).ready(function(){
   			// // An error happened.
 			// });
 	
-			window.location.href='main_page.html';
+			window.location.href='Xiaojian Chen\\Profile Creation.html';
 			
 			$("form")[0].reset();//reset all fields
 		}
