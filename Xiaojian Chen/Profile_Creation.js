@@ -15,8 +15,10 @@ var config = {
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
 
+  var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need update
 
 $( document ).ready(function(){
+    //autocomplete for Degree textbox
     $( "#create_degree").autocomplete({
         source: ["Associate of Arts (A.A.)","Associate of Science (A.S.)",
         "Bachelor of Arts (B.A.)","Bachelor of Science degree (B.S.)",
@@ -29,6 +31,7 @@ $( document ).ready(function(){
         }
     });
 
+    //autocomplete for Year textbox
     $( "#create_Year").autocomplete({
         source: ["Freshman","Sophomore","Junior","Senior"],
         autoFocus: true,
@@ -40,8 +43,7 @@ $( document ).ready(function(){
     
 });
 
-var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user
-
+// for summit btn
 function summit(){
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
@@ -53,11 +55,11 @@ function summit(){
     
     writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
     setTimeout(function(){
-        window.location.href ='../main_page.html';
-    },1000);
+        window.location.href ='../main_page.html';  //jump to main page
+    },1000); //the timer is for uploading the profile to firestore
 }
 
-
+//write the profile to firestore
 function writeFirestore_profile(id, firstName, lastName, school, major, degree, graduationYear, year){
     var ref = firestore.collection("users").doc(id)
     ref.set({

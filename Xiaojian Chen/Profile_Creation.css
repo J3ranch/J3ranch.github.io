@@ -1,11 +1,11 @@
 /*Xiaojan Chen 905118702*/
 
 body {
-    background-color: #eee;
+    background-color: white;
 	margin-left: auto;
     margin-right: auto;
     width: 50em;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
     
 }
 #main_container{
@@ -15,14 +15,14 @@ body {
 h1{
     text-align:	center;
     font-size: 250%;
-    font-family: 'Economica', sans-serif;
+   /*font-family: 'Economica', sans-serif;*/
 }
 
 #profile_creation_container{
     font-size: 350%;
     margin: auto;
     text-align:center;
-    height: 400px;
+    height: 450px;
     width: 850px;
 
     overflow-y: scroll;
