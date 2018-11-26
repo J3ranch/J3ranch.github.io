@@ -6,6 +6,26 @@ db.settings({
   timestampsInSnapshots: true
 });
 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) 
+    {
+        console.log("Logged in");
+        document.getElementById("searchbar").value = user.email;
+    }
+    else
+    {
+        console.log("Not logged in");
+        window.location='./index.html';
+    }
+});
+
+function logout() {
+
+    console.log("Logout")
+
+    firebase.auth().signOut();
+}
+
 // Get the modal
 var modal = document.getElementById('scholarship-modal');
 var frame = document.getElementById("scholarship-iframe");
@@ -50,7 +70,8 @@ function applyButtons() {
 function getAllScholarships() {
     clearResults();
 
-    db.collection("scholarships").get().then(function(query) {
+    db.collection("scholarships").orderBy("name")
+    .get().then(function(query) {
         query.forEach(function(doc) {
             addScholarship(doc);
         })

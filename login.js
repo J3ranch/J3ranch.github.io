@@ -5,7 +5,7 @@ function onload()
     if (user) 
     {
         console.log("Logged in");
-        window.location='Andrew Canafe\\index.html';
+        window.location='main_page.html';
     }
 }
 
@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) 
     {
         console.log("Logged in");
-        window.location='Andrew Canafe\\index.html';
+        window.location='main_page.html';
     }
     else
     {

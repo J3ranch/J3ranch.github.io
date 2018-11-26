@@ -10,6 +10,7 @@
 
 	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
 
 	<script>
 	  // Initialize Firebase
@@ -37,7 +38,7 @@
 		</div>
 		<div id="profile-logout">
 			<div id="profile-pic" tabindex="0" onclick="location.href='./account_settings.html'"></div>
-			<button class="green-button" id="logout-button" onclick="location.href='./index.html'">LOGOUT</button>
+			<button class="green-button" id="logout-button" onclick="logout()">LOGOUT</button>
 		</div>
 	</div>
 
