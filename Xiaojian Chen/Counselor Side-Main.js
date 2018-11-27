@@ -1,23 +1,8 @@
 /*Xiaojan Chen 905118702*/
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
-    authDomain: "ucscholarship-10628.firebaseapp.com",
-    databaseURL: "https://ucscholarship-10628.firebaseio.com",
-    projectId: "ucscholarship-10628",
-    storageBucket: "ucscholarship-10628.appspot.com",
-    messagingSenderId: "877779845443"
-};
-firebase.initializeApp(config);
-
-var firestore = firebase.firestore();
-const settings = {/* your settings... */ timestampsInSnapshots: true};
-firestore.settings(settings);
+//the firebase initialization is in the HTML file
 
 var studentList = document.getElementById("student_list");
-var chat_student_id ="";
-var chat_student_name="";
 
 //create element & render students
 function renderStudent(doc){
@@ -31,7 +16,8 @@ function renderStudent(doc){
     let chatButton = document.createElement('button');
 
     li.setAttribute('data-id', doc.id);
-    li.setAttribute('name', doc.data().First_Name+" "+doc.data().Last_Name);
+    li.setAttribute('FName', doc.data().First_Name);
+    li.setAttribute('LName',doc.data().Last_Name)
     name.innerHTML = "<i class='fas fa-user'></i>  " +doc.data().First_Name+" "+doc.data().Last_Name;
     school.innerHTML = "<i class='fas fa-angle-right'></i>  "+"School: " +doc.data().School;
     major.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Major: " +doc.data().Major;
@@ -54,12 +40,12 @@ function renderStudent(doc){
     //open a chat window 
     chatButton.addEventListener('click', (e)=>{
         e.stopPropagation();
-        chat_student_id = e.target.parentElement.getAttribute('data-id');
-        console.log(chat_student_id);
-        chat_student_name =  e.target.parentElement.getAttribute('name');
-        console.log(chat_student_name);
-        
-        window.open ('./Chatting-forCounselor.html','newwindow',
+        var chat_student_id = e.target.parentElement.getAttribute('data-id');   //get the student id
+        var chat_student_FName =  e.target.parentElement.getAttribute('FName');   //get the student First name
+        var chat_student_LName =  e.target.parentElement.getAttribute('LName');   //get the student First name
+
+        //open chat window, passing student id and name via url
+        window.open ('./Chatting-forCounselor.html?'+chat_student_id+"?"+chat_student_FName+"?"+chat_student_LName,'newwindow',
         'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     })
 }

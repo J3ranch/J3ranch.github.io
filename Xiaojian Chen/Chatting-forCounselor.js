@@ -1,6 +1,15 @@
 /*Xiaojan Chen 905118702*/
-var User_id = "dwDMx5wNYPxmZeqNVslY";  //the id for student, incromplete
-document.getElementById("chat_head_text").innerHTML = "Chat with" + chat_student_name;
+
+//the firebase initialization is in the HTML file
+
+//process URL data
+var thisURL =document.URL;
+var uId = thisURL.split('?')[1];
+var uName = thisURL.split('?')[2]+" "+thisURL.split('?')[3];
+
+
+var User_id = uId;  //the id for student
+document.getElementById("chat_head_text").innerHTML = "Chat with " + uName;
 
 
 var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
