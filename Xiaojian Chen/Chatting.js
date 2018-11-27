@@ -11,11 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
     LoadFireStore_updateChat(); //load the chat history
 })
 
-//For open chat window
-function openChat() { 
-    window.open ('./Xiaojian%20Chen/Chatting.html','newwindow',
-    'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')  
-}
 
 //for the send button (in Chatting)
 function sendByStudent(){
