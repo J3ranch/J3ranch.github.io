@@ -15,7 +15,7 @@ var config = {
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
 
-  var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need update
+var User_id = "dwDMx5wNYPxmZeqNVslY";  //the id for current user; still need update
 
 $( document ).ready(function(){
     //autocomplete for Degree textbox

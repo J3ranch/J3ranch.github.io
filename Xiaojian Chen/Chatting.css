@@ -33,13 +33,13 @@ body {
     
     height:30px;
     color: white;
+    width:250px;
     
 }
 
 #clear_btn{
     font-size:12px;
     margin-bottom:5px;
-    margin-left:95px;
     width: 100px;
     height: 25px;
     border-color:gray;
@@ -104,3 +104,15 @@ body {
      color:#fff;
      padding:5px 10px;
  }
+
+ .System{
+    margin:10px;
+    text-align:auto;
+}
+.System span{
+    display:inline-block;
+    background:rgb(185, 58, 58);
+    border-radius:10px;
+    color:#fff;
+    padding:5px 10px;
+}

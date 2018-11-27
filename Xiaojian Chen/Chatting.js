@@ -21,7 +21,7 @@ try {
   firestore.settings(settings);
 
 
-var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need update
+var User_id = "dwDMx5wNYPxmZeqNVslY";  //the id for current user
 var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
 
 
