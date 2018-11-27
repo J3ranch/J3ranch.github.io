@@ -85,7 +85,9 @@ document.addEventListener('blur', function (event) {
 	removeError(event.target);
 }, true);
 
+
 $(document).ready(function(){
+	
 	$(function () {
 		$('form > input').keyup(function() {
 			var empty = false;
@@ -102,57 +104,82 @@ $(document).ready(function(){
 		});
 	});
 	
+	
 	$("#signupButton").click(function(){
-		
 		var password = $("#password").val();
 		var confirmPassword = $("#confirmPassword").val();
 		var email = $("#email").val();
 		var confirmEmail = $("#confirmEmail").val();
-		var showError = document.createElement('p');
 		
-		//check password mismatch
+		
+	
 		if(!(password).match(confirmPassword)){
+			var showError = document.createElement('p');
 			$(this).closest('form').find("input[type=password], textarea").val("");
 			$(showError).addClass('error-message');
 			$(showError).text('*Error: Password mismatch');
-			$("#showErrorAfterSubmit").html(showError);
+			$(".showErrorAfterSubmit").html(showError);
+		
 		}
 		
-		//check email mismatch
-		else if(!(email).match(confirmEmail)){
+		
+		if(!(email).match(confirmEmail)){
+			var showError = document.createElement('p');
 			$(this).closest('form').find("input[type=password], textarea").val("");
 			$(this).closest('form').find("input[type=email], textarea").val("");
 			$(showError).addClass('error-message');
 			$(showError).text("*Error: Email mismatch");
-			$("#showErrorAfterSubmit").replaceWith(showError);
+			$(".showErrorAfterSubmit").html(showError);
+
 		}
-		
-		//submit the form to database after all the fields are validated
-		else{
+
+		if((password).match(confirmPassword) && (email).match(confirmEmail)){
 			firebase.auth().createUserWithEmailAndPassword(email, password)
-			.catch(function(error) {
+			.then(()=>{
+				console.log('Signup successful.');
+				firebase.auth().signInWithEmailAndPassword(email, password)
+				.catch((error)=> {
+					// Handle Errors here.
+					var errorCode = error.code;
+					var errorMessage = error.message;
+				});
+
+				var user = firebase.auth().currentUser;
+
+				if (user) 
+				{
+					console.log("Logged in");
+				   	window.location='Xiaojian Chen\\Profile Creation.html';
+				}
+
+			})
+			.catch((error)=> {
 				var errorCode = error.code;
 				var errorMessage = error.message;
-				if (errorCode === 'auth/email-already-in-use') {
+				if (errorCode === 'auth/email-already-in-use'){
+					var showError = document.createElement('p');
 					$(showError).addClass('error-message');
 					$(showError).text('*This email is already in use. Please try another email!');
-					$("#showErrorAfterSubmit").replaceWith(showError);
-					return;
-				} 
-			});
-
-			//Send email verification option
-			// var user = firebase.auth().currentUser;
-			// user.sendEmailVerification().then(function(){
-  			// // Email sent.
-			// }).catch(function(error) {
-  			// // An error happened.
-			// });
-	
-			window.location.href='Xiaojian Chen\\Profile Creation.html';
-			
+					$(".showErrorAfterSubmit").html(showError);
+				}
+				console.log(errorCode);
+				console.log(errorMessage);
+			})
 			$("form")[0].reset();//reset all fields
+	
 		}
-		$('#signupButton').attr('disabled', 'disabled');//disabled submit button
+		
+		$('#signupButton').attr('disabled', 'disabled');//disable sign-up button after submit the form
+	
+	});
+	
+	var input = document.getElementById("form");
+		  input.addEventListener("keyup", function(event){
+			    event.preventDefault();
+			    if (event.keyCode === 13) 
+			    {
+			   document.getElementById("signupButton").click();
+			    }
 	});
 })
+
