@@ -24,8 +24,8 @@
 <body>
 	<h1>Email Sign Up</h1>
 	<div>
-		<p id="showErrorAfterSubmit"></p>
-		<form class= "validate" action="" method="POST">
+		<p class="showErrorAfterSubmit"></p>
+		<form class= "validate" action="" method="POST" id="form">
 			<input type="text" id="username" name ="username" placeholder="Username" pattern="[a-zA-Z0-9_-]{6,}" title="*Your username must be at least 6 characters" required>
 			<input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="password" name ="password" required title="*Your password must be at least 6 characters as well as contain
 			at least one uppercase, one lowercase, and one number." placeholder="Password">
