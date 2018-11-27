@@ -112,7 +112,7 @@ $(document).ready(function(){
 		var confirmEmail = $("#confirmEmail").val();
 		
 		
-	
+		//display error if password mismatch
 		if(!(password).match(confirmPassword)){
 			var showError = document.createElement('p');
 			$(this).closest('form').find("input[type=password], textarea").val("");
@@ -122,7 +122,7 @@ $(document).ready(function(){
 		
 		}
 		
-		
+		//display error if email mismatch
 		if(!(email).match(confirmEmail)){
 			var showError = document.createElement('p');
 			$(this).closest('form').find("input[type=password], textarea").val("");
@@ -132,7 +132,8 @@ $(document).ready(function(){
 			$(".showErrorAfterSubmit").html(showError);
 
 		}
-
+		
+		//write user information to firebase and automatically login 
 		if((password).match(confirmPassword) && (email).match(confirmEmail)){
 			firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then(()=>{
@@ -153,6 +154,7 @@ $(document).ready(function(){
 				}
 
 			})
+			//display error when user's email is already signed up
 			.catch((error)=> {
 				var errorCode = error.code;
 				var errorMessage = error.message;
@@ -169,10 +171,11 @@ $(document).ready(function(){
 	
 		}
 		
-		$('#signupButton').attr('disabled', 'disabled');//disable sign-up button after submit the form
+		$('#signupButton').attr('disabled', 'disabled');//disable sign-up button after submitted the form
 	
 	});
 	
+	//use "enter" key for signUp button
 	var input = document.getElementById("form");
 		  input.addEventListener("keyup", function(event){
 			    event.preventDefault();
