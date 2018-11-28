@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="signup.css" />
 </head>
 <body>
-    <center><h1>Sign up</h1></center>
+    <!-- <center><h1>Sign up</h1></center>
     <center>
         <div class="loginOptions">
             <button id="googleSignup"><img src="img/google.svg" style="float:left;margin-right:0.5em;margin-top: 0.1em;height:auto;width:25px"> Sign up using Google</button>
@@ -13,6 +13,26 @@
             <button id="twitterSignup"><img src="img/twitter.svg" style="float:left;margin-right:0.5em;margin-top: 0.2em;height:auto;width:25px">Sign up using Twitter</button>
             <button id="emailSignup" onclick="window.location.href='emailSignUp.html'"><img src="img/email.svg" style="float:left;margin-right:0.5em;height:auto;width:25px">Sign up using Email</button>
         </div>
-    </center>
+    </center> -->
+
+    <div class="signup-container">
+        <h1 class="logo-name">Sign Up</h1>
+        <button class="login-option google">
+            <img src="img/google.svg" />
+            <span>Sign up using Google</span>
+        </button>
+        <button class="login-option facebook">
+            <img src="img/facebook.svg" />
+            <span>Sign up using Facebook</span>
+        </button>
+        <button class="login-option twitter">
+            <img src="img/twitter.svg" />
+            <span>Sign up using Twitter</span>
+        </button>
+        <button class="login-option email" onclick="window.location.href='emailSignUp.html'">
+            <img src="img/email.svg" />
+            <span>Sign up using Email</span>
+        </button>
+    </div>
 </body>
 </html>
