@@ -1,28 +1,29 @@
 /*Xiaojan Chen 905118702*/
 
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
 body {
-    background-color: #eeeeee;
 	margin-left: auto;
     margin-right: auto;
     width: 50em;
-    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: "Economica", sans-serif;
     
 }
 #main_container{
-    margin-top:100px;
+    margin-top:150px;
     margin-bottom:auto;
 }
 h1{
     text-align:	center;
-    font-size: 250%;
-   /*font-family: 'Economica', sans-serif;*/
+    font-size: 300%;
+    font-family: "Economica", sans-serif;
 }
 
 #profile_creation_container{
     font-size: 350%;
     margin: auto;
     text-align:center;
-    height: 460px;
+    height: 490px;
     width: 850px;
 
     overflow-y: scroll;
@@ -35,15 +36,19 @@ h1{
     width: 700px;
     height: 40px;
     line-height:40px;
-    font-size: 25px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 23px;
     box-shadow: 3px 3px 3px #888888; 
     
 }
 
+.creation_textarea:hover{
+    background-color: lightgray;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 input::-webkit-input-placeholder{
-    font-size: 25px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 23px;
     margin:center;
     line-height:40px;
 }
@@ -63,13 +68,24 @@ input::-webkit-input-placeholder{
     font-family: 'Open Sans', sans-serif;
 }
 
-#chat_open_btn{
+#err_container{
+    margin:auto;
+    height:20px;
+    text-align:center;
+    font-weight:  bold;
+    font-size:22px;
+}
+.error-message-container {
+    margin:auto;
+    padding: 8px 10px;
+    border: 1px solid #B6232A;
+    background-color: #EFC6C3;
+    color: #B6232A;
+    text-align: center;
     display: none;
-    
-    width:200px;
-    height:35px;
-    font-size:20px;
-    font-family: 'Open Sans', sans-serif;
-
 }
 
+.error, .error:focus {
+    border: 1px solid #B6232A;
+    background-color: #EFC6C3;
+}
