@@ -1,6 +1,10 @@
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
+//process URL data
+var thisURL =document.URL;
+var uId = thisURL.split('?')[1];
+
 // Disable deprecated features
 db.settings({
   timestampsInSnapshots: true
@@ -286,6 +290,6 @@ getAllScholarships();
 function openChat() { 
     //var student_id ="";
 
-    window.open ('./Xiaojian%20Chen/Chatting.html','newwindow',
+    window.open ('./Xiaojian%20Chen/Chatting.html'+'?'+uId,'newwindow',
     'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')  
 }
