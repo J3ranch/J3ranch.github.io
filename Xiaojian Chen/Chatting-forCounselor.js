@@ -4,11 +4,12 @@
 
 //process URL data
 var thisURL =document.URL;
-var uId = thisURL.split('?')[1];
-var uName = thisURL.split('?')[2]+" "+thisURL.split('?')[3];
+var uID = thisURL.split('?')[1].split('uID=')[1];
+
+var uName = thisURL.split('?')[2].split('uFNAME=')[1]+" "+thisURL.split('?')[3].split('uLNAME=')[1];
 
 
-var User_id = uId;  //the id for student
+var User_id = uID;  //the id for student
 document.getElementById("chat_head_text").innerHTML = "Chat with " + uName;
 
 

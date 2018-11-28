@@ -1,7 +1,6 @@
 function onload()
 {
     var user = firebase.auth().currentUser;
-    //var uID = user.uid;		//get user ID
 
     if (user) 
     {
@@ -18,7 +17,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     {
         console.log("Logged in");
         var uID = user.uid; //get current user uid
-        window.location='main_page.html'+"?"+uID;   //passing uid
+        window.location='main_page.html'+"?uID="+uID;   //passing uid
     }
     else
     {

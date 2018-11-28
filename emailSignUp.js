@@ -151,7 +151,7 @@ $(document).ready(function(){
 				if (user) 
 				{
 					console.log("Logged in");
-				   	window.location='Xiaojian Chen\\Profile Creation.html?'+uID;	//send user ID via URL
+				   	window.location='Xiaojian Chen\\Profile Creation.html'+'?uID='+uID;	//send user ID via URL
 				}
 
 			})

@@ -4,9 +4,9 @@
 
 //process URL data
 var thisURL =document.URL;
-var uId = thisURL.split('?')[1];
+var uID = thisURL.split('?')[1].split('uID=')[1];
 
-var User_id = uId;  //the id for current user
+var User_id = uID;  //the id for current user
 var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
 
 
