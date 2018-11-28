@@ -16,7 +16,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) 
     {
         console.log("Logged in");
-        window.location='main_page.html';
+        var uID = user.uid; //get current user uid
+        window.location='main_page.html'+"?uID="+uID;   //passing uid
     }
     else
     {

@@ -2,7 +2,11 @@
 
 //the firebase initialization is in the HTML file
 
-var User_id = "dwDMx5wNYPxmZeqNVslY";  //the id for current user; still need update
+//process URL data
+var thisURL =document.URL;
+var uID = thisURL.split('?')[1].split('uID=')[1];
+
+var User_id = uID;  //the id for current user;
 
 $( document ).ready(function(){
     //autocomplete for Degree textbox
@@ -42,7 +46,7 @@ function summit(){
     
     writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
     setTimeout(function(){
-        window.location.href ='../main_page.html';  //jump to main page
+        window.location.href ='../main_page.html'+'?uID='+uID;  //jump to main page, pass uID via URL
     },1000); //the timer is for uploading the profile to firestore
 }
 

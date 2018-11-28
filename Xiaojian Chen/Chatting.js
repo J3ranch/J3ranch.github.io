@@ -2,7 +2,11 @@
 
 //the firebase initialization is in the HTML file
 
-var User_id = "dwDMx5wNYPxmZeqNVslY";  //the id for current user
+//process URL data
+var thisURL =document.URL;
+var uID = thisURL.split('?')[1].split('uID=')[1];
+
+var User_id = uID;  //the id for current user
 var ref =firestore.collection("users").doc(User_id).collection("Chat History") //the reference of Chat history collection
 
 

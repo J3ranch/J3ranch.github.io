@@ -45,7 +45,7 @@ function renderStudent(doc){
         var chat_student_LName =  e.target.parentElement.getAttribute('LName');   //get the student First name
 
         //open chat window, passing student id and name via url
-        window.open ('./Chatting-forCounselor.html?'+chat_student_id+"?"+chat_student_FName+"?"+chat_student_LName,'newwindow',
+        window.open ('./Chatting-forCounselor.html'+'?uID='+chat_student_id+"?uFNAME="+chat_student_FName+"?uLNAME="+chat_student_LName,'newwindow',
         'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     })
 }
