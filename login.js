@@ -16,7 +16,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) 
     {
         console.log("Logged in");
-        window.location='main_page.html';
+        var uID = user.uid; //get current user uid
+        window.location='main_page.html'+"?uID="+uID;   //passing uid
     }
     else
     {
@@ -30,9 +31,14 @@ function login() {
 
     email = document.getElementById("email").value;
     password = document.getElementById("password").value;
+    errorDialog = document.getElementById("error-message");
 
     if (email.length === 0 || password.length === 0) {
         console.log("Enter username and/or password");
+        document.getElementById("error-message-container").style.display = "initial";
+        errorDialog.textContent = "Enter username and/or password";
+        document.getElementById("email").classList.add("error");
+        document.getElementById("password").classList.add("error");
         return;
     }
 
@@ -44,17 +50,22 @@ function login() {
         if (errorCode === 'auth/wrong-password')
         {
             console.log("Incorrect password");
-            document.getElementById("incorrect-password").style.display = "block";
+            document.getElementById("error-message-container").style.display = "initial";
+            errorDialog.textContent = "Incorrect password";
+            document.getElementById("password").classList.add("error");
+            document.getElementById("email").classList.remove("error");
         }
         else if (errorCode === 'auth/invalid-email' || errorCode === 'auth/user-not-found')
         {
             console.log("Incorrect email or the user does not exist")
-            document.getElementById("incorrect-email").style.display = "block";
+            document.getElementById("error-message-container").style.display = "initial";
+            errorDialog.textContent = "Incorrect email or the user does not exist";
+            document.getElementById("email").classList.add("error");            
+            document.getElementById("password").classList.remove("error");
         }
 
         console.log(errorCode);
         console.log(errorMessage);
         console.log("End of login function");
-        // ...
     });
 }

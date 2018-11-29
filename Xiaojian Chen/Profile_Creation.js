@@ -1,21 +1,12 @@
 /*Xiaojan Chen 905118702*/
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
-    authDomain: "ucscholarship-10628.firebaseapp.com",
-    databaseURL: "https://ucscholarship-10628.firebaseio.com",
-    projectId: "ucscholarship-10628",
-    storageBucket: "ucscholarship-10628.appspot.com",
-    messagingSenderId: "877779845443"
-  };
-  firebase.initializeApp(config);
+//the firebase initialization is in the HTML file
 
-  var firestore = firebase.firestore();
-  const settings = {/* your settings... */ timestampsInSnapshots: true};
-  firestore.settings(settings);
+//process URL data
+var thisURL =document.URL;
+var uID = thisURL.split('?')[1].split('uID=')[1];
 
-  var User_id = "wDnseS1njZWeo0i8kL3a";  //the id for current user; still need update
+var User_id = uID;  //the id for current user;
 
 $( document ).ready(function(){
     //autocomplete for Degree textbox
@@ -45,6 +36,8 @@ $( document ).ready(function(){
 
 // for summit btn
 function summit(){
+
+    errorDialog = document.getElementById("error-message");
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
     var SH = document.getElementById("create_school").value;
@@ -52,11 +45,22 @@ function summit(){
     var DG = document.getElementById("create_degree").value;
     var GYR = document.getElementById("create_graduationYear").value;
     var YR = document.getElementById("create_Year").value;
+
+    if (FN.length === 0 || LN.length === 0) {
+        console.log("Enter your First Name and/or Last Name");
+        document.getElementById("error-message-container").style.display = "initial";
+        errorDialog.textContent = "Enter your First Name and/or Last Name";
+        document.getElementById("create_firstName").classList.add("error");
+        document.getElementById("create_lastName").classList.add("error");
+        
+    }else{
+        writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
+        setTimeout(function(){
+            window.location.href ='../main_page.html'+'?uID='+uID;  //jump to main page, pass uID via URL
+        },1000); //the timer is for uploading the profile to firestore
+    }
     
-    writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
-    setTimeout(function(){
-        window.location.href ='../main_page.html';  //jump to main page
-    },1000); //the timer is for uploading the profile to firestore
+    
 }
 
 //write the profile to firestore

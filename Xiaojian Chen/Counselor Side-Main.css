@@ -1,0 +1,75 @@
+/*Xiaojan Chen 905118702*/
+
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
+body {
+    background-color: #eee;
+    font-family: "Economica", sans-serif;
+    margin: auto;
+    Width: 1000px;
+}
+h1{
+    
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-top: 80px;
+    text-align: center;
+    font-family: "Economica", sans-serif;
+    font-weight:  bold;
+}
+
+h2{
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-weight:  bold;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+li{
+    padding: 20px;
+    background: #f6f6f6;
+    font-size: 30px;
+    color: #555;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    height: 180px;
+}
+
+li:nth-child(even){
+    padding: 20px;
+    background: #eee;
+}
+
+li span{
+    display: block;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    margin-top: 6px;
+    color: rgb(151, 146, 146);
+    font-weight:  bold;
+}
+
+li span:nth-child(1){
+    font-size: 28px;
+    color:black;
+
+}
+
+li button{
+    position: absolute;
+    top: 90px;
+    right: 90px;
+    background: rgba(255,255,255,0.6);
+    width: 70px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight:  bold;
+    font-size:25px;
+    cursor:  pointer;
+    font-family: "Economica", sans-serif;
+}
