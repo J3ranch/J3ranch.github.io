@@ -202,13 +202,20 @@
 	padding: 1px 3px 1px 3px;
 }
 
+#scholarship-percent-container {
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
 #scholarship-percent-container .overlay-content {
 	width: fit-content;
 	height: fit-content;
 
-	font-size: 60pt;
+	font-size: 16pt;
 	font-weight: bold;
-	color: orange;
+	color: #DF525E;
 }
 
 #loader {
@@ -252,4 +259,8 @@
 	font-family: "Open-Sans", sans-serif;
 	visibility: hidden;
 	color: #B7B7B7;
+}
+
+#deadline {
+	visibility: hidden;
 }

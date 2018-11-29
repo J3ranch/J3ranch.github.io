@@ -59,17 +59,27 @@ function getData(sid) {
 }
 
 function setDoc(doc) {
+	var deadlineDate;
+	eval("deadlineDate = new Date('" + doc.data().deadline + "')");
+	var deadline = deadlineDate.toLocaleString("en-us", {
+        month: "long",
+        year: "numeric",
+        day: "numeric"
+    });
+
 	document.getElementById("scholarship-picture").setAttribute("src", doc.data().image);
 	document.getElementById("scholarship-name").innerHTML = doc.data().name;
 	document.getElementById("amount").innerHTML = "$" + doc.data().award.toLocaleString("en");
 	document.getElementById("scholarship-summary").innerHTML = doc.data().description;
-	document.getElementById("chance").innerHTML = doc.data().chance;
+	document.getElementById("chance").innerHTML = doc.data().chance + "%";
+	document.getElementById("deadline").innerHTML = deadline;
 
 	addReqs(doc);
 	addTags(doc);
 
 	document.getElementById("details").removeAttribute("disabled");
 	document.getElementById("apply").removeAttribute("disabled");
+	document.getElementById("deadline").style.visibility = "visible";
 }
 
 function addReqs(doc) {

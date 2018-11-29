@@ -90,7 +90,7 @@ function addScholarship(doc) {
     var date;
     eval("date = new Date('" + doc.data().deadline + "T00:00:00')");
     var deadlineDate = date.toLocaleString("en-us", {
-        month: "short",
+        month: "long",
         year: "numeric",
         day: "numeric"
     });
@@ -191,10 +191,16 @@ function search(search) {
     var keywords = search.keywords;
     var results = [];
 
-    // Default Optional Params
-    var minAward = search.hasOwnProperty("min_award") ? search.min_award : 0;
-    var maxEssays = search.hasOwnProperty("max_essays") ? search.max_essays : 999;
-    var major = search.hasOwnProperty("major") ? search.major : "All";
+    // Parse Optional Params
+    var minAward = (search.hasOwnProperty("min_award") && typeof search.min_award === "number") ? search.min_award : 0;
+    var maxEssays = (search.hasOwnProperty("max_essays") && typeof search.max_essays === "number") ? search.max_essays : 999;
+    var major = (search.hasOwnProperty("major") && typeof search.major === "string") ? search.major : "All";
+    var provider = (search.hasOwnProperty("provider") && typeof search.provider === "string") ? search.provider : "Any";
+    var ethnicity = (search.hasOwnProperty("ethnicity") && typeof search.ethnicity === "string") ? search.ethnicity : "Any";
+    var gradYear = (search.hasOwnProperty("grad_year") && typeof search.grad_year === "number") ? search.grad_year : 99999;
+    var year = (search.hasOwnProperty("year") && typeof search.year === "number") ? search.year : 0;
+    var degree = (search.hasOwnProperty("degree") && typeof search.degree === "number") ? search.degree : 0;
+    var maxGPA = (search.hasOwnProperty("max_gpa") && typeof search.max_gpa === "number") ? search.max_gpa : 0;
 
     document.getElementById("long-load").style.visibility = "hidden";
     document.getElementById("loader").style.display = "flex";
@@ -216,8 +222,13 @@ function search(search) {
             if (doc.data().award < minAward) return;
             if (doc.data().requirements.essays > maxEssays) return;
             if (major !== "All" && doc.data().requirements.major !== "All" && doc.data().requirements.major !== major) return;
+            if (provider !== "Any" && doc.data().provider !== provider) return;
+            if (doc.data().requirements.grad_year < gradYear) return;
+            if (doc.data().requirements.year > year) return;
+            if (doc.data().requirements.degree > degree) return;
+            if (doc.data().requirements.gpa > maxGPA) return;
 
-            // Keyword search
+            // Keyword Search
             keywords.forEach(function(term) {
                 if (doc.data().name.toLowerCase().includes(term.toLowerCase())) {
                     if (!results.includes(doc))

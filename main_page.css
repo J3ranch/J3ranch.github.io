@@ -313,9 +313,11 @@ html, body {
 	color: #62CB3B;
 }
 
-.deadline {
+.scholarship-overview p.deadline {
 	font-weight: bold;
 	color: #DF525E;
+
+	margin-right: 10px;
 }
 
 #no-results {
