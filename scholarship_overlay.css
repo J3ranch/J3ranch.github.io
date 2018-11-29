@@ -54,6 +54,7 @@
 	grid-row: 5/span 4;
 
 	font-family: "Open Sans", sans-serif;
+	overflow: scroll;
 }
 
 #scholarship-tags-container {

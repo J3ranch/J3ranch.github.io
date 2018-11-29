@@ -3,7 +3,13 @@ var db = firebase.firestore();
 
 //process URL data
 var thisURL =document.URL;
-var uID = thisURL.split('?')[1].split('uID=')[1];
+var uID;
+
+try {
+    uID = thisURL.split('?')[1].split('uID=')[1];
+} catch(error) {
+
+}
 
 // Disable deprecated features
 db.settings({
@@ -61,7 +67,7 @@ function applyButtons() {
     document.getElementById("reset-search").addEventListener("click", function(e) {
         document.getElementById("no-results").style.display = "none";
         document.getElementById("searchbar").value = ""
-        search({keywords: [""]});
+        search({keywords:[]});
     });
 
     document.getElementById("reset-search").addEventListener("keydown", function(e) {
@@ -108,7 +114,7 @@ function addScholarship(doc) {
     var name = document.createElement("h3"); name.innerHTML = doc.data().name;
     var award = document.createElement("p"); award.innerHTML = "$" + doc.data().award.toLocaleString("en"); award.setAttribute("class", "award");
     var deadline = document.createElement("p"); deadline.innerHTML = "Deadline: " + deadlineDate; deadline.setAttribute("class", "deadline");
-    var oneLine = document.createElement("p"); oneLine.innerHTML = doc.data().one_line;
+    var oneLine = document.createElement("p"); oneLine.innerHTML = doc.data().one_line; oneLine.setAttribute("class", "one-line");
     var tags = document.createElement("p"); tags.innerHTML = "Tags: " + doc.data().tags.join(", "); tags.setAttribute("class", "tags");
 
     majorInfo.appendChild(award);
@@ -195,16 +201,21 @@ function search(search) {
     var keywords = search.keywords;
     var results = [];
 
+    if (keywords.length === 0) {
+        search.empty_search = true;
+    }
+
     // Parse Optional Params
     var minAward = (search.hasOwnProperty("min_award") && typeof search.min_award === "number") ? search.min_award : 0;
     var maxEssays = (search.hasOwnProperty("max_essays") && typeof search.max_essays === "number") ? search.max_essays : 999;
     var major = (search.hasOwnProperty("major") && typeof search.major === "string") ? search.major : "All";
     var provider = (search.hasOwnProperty("provider") && typeof search.provider === "string") ? search.provider : "Any";
     var ethnicity = (search.hasOwnProperty("ethnicity") && typeof search.ethnicity === "string") ? search.ethnicity : "Any";
-    var gradYear = (search.hasOwnProperty("grad_year") && typeof search.grad_year === "number") ? search.grad_year : 99999;
-    var year = (search.hasOwnProperty("year") && typeof search.year === "number") ? search.year : 0;
+    var gradYear = (search.hasOwnProperty("grad_year") && typeof search.grad_year === "number") ? search.grad_year : 0;
+    var year = (search.hasOwnProperty("year") && typeof search.year === "number") ? search.year : 9999;
     var degree = (search.hasOwnProperty("degree") && typeof search.degree === "number") ? search.degree : 0;
-    var maxGPA = (search.hasOwnProperty("max_gpa") && typeof search.max_gpa === "number") ? search.max_gpa : 0;
+    var maxGPA = (search.hasOwnProperty("max_gpa") && typeof search.max_gpa === "number") ? search.max_gpa : 10;
+    var citizenship = (search.hasOwnProperty("citizenship") && typeof search.citizenship === "boolean") ? search.citizenship : 0; 
 
     document.getElementById("long-load").style.visibility = "hidden";
     document.getElementById("loader").style.display = "flex";
@@ -231,6 +242,12 @@ function search(search) {
             if (doc.data().requirements.year > year) return;
             if (doc.data().requirements.degree > degree) return;
             if (doc.data().requirements.gpa > maxGPA) return;
+            if (citizenship !== 0 && doc.data().requirement.citizenship !== citizenship) return;
+
+            // Empty Search
+            if (search.hasOwnProperty("empty_search") && typeof search.empty_search === "boolean") {
+                results.push(doc); return;
+            }
 
             // Keyword Search
             keywords.forEach(function(term) {
@@ -259,15 +276,13 @@ function search(search) {
 }
 
 function showSearch(results) {
-     if (document.getElementById("searchbar").value !== "" && results.length > 0) {
+     if (results.length > 0) {
         results.forEach(function(doc) {
             addScholarship(doc);
         });
-    } else if (document.getElementById("searchbar").value !== "" && results.length == 0) {
-        document.getElementById("no-results").style.display = "flex";
     } else {
-        getAllScholarships();
-    } 
+        document.getElementById("no-results").style.display = "flex";
+    }
     
     document.getElementById("loader").style.display = "none";     
 }
@@ -293,7 +308,7 @@ else if (window.attachEvent) {
 }
 
 applyButtons();
-getAllScholarships();
+search({keywords:[]});
 
 
 

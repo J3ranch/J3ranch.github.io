@@ -74,6 +74,8 @@ function setDoc(doc) {
 	document.getElementById("chance").innerHTML = doc.data().chance + "%";
 	document.getElementById("deadline").innerHTML = deadline;
 
+	document.getElementById("details").setAttribute("onclick", "window.open('" + doc.data().details_url + "', '_blank')")
+	document.getElementById("apply").setAttribute("onclick", "window.open('" + doc.data().apply_url + "', '_blank')")
 	addReqs(doc);
 	addTags(doc);
 

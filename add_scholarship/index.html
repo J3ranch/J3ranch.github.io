@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scholarship Add Form</title>
+	<link type="text/css" rel="stylesheet" href="./style.css">
+
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-firestore.js"></script>
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+	    authDomain: "ucscholarship-10628.firebaseapp.com",
+	    databaseURL: "https://ucscholarship-10628.firebaseio.com",
+	    projectId: "ucscholarship-10628",
+	    storageBucket: "ucscholarship-10628.appspot.com",
+	    messagingSenderId: "877779845443"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+</head>
+<body>
+	<div>SID: <input type="text" placeholder="int" id="sid" disabled></div>
+	<div>Scholarship Name: <input type="text" placeholder="string" id="name"></div>
+	<div>Scholarship Award: <input type="text" placeholder="string" id="award"></div>
+	<div>Scholarship Deadline: <input type="text" placeholder="YYYY-MM-DD" id="deadline"></div>
+	<div>Scholarship One-Liner: <input type="text" placeholder="string" id="one_line"></div>
+	<div>Scholarship Description: <input type="text" placeholder="string" id="description"></div>
+	<div>Scholarship Image: <input type="text" placeholder="url" id="image"></div>
+	<div>Scholarship Chance: <input type="text" placeholder="string" id="chance"></div>
+	<div>Scholarship Application URL: <input type="text" placeholder="url" id="apply_url"></div>
+	<div>Scholarship Details URL: <input type="text" placeholder="url" id="details_url"></div>
+	<div>Scholarship Provider: <input type="text" placeholder="string" id="provider"></div>
+	<div>Essay Req: <input type="text" placeholder="int" id="essays"></div>
+	<div>Interview Req: <input type="text" placeholder="int" id="interviews"></div>
+	<div>Major Req: <input type="text" placeholder="string" id="major"></div>
+	<div>Ethnicity Req: <input type="text" placeholder="string" id="ethnicity"></div>
+	<div>GPA Req: <input type="text" placeholder="double" id="gpa"></div>
+	<div>Year Req: <input type="text" placeholder="int" id="year"></div>
+	<div>Grad Year Req: <input type="text" placeholder="int" id="grad-year"></div>
+	<div>Degree Req: <input type="text" placeholder="int" id="degree"></div>
+	<div>Citizenship Req: <input type="text" placeholder="boolean" id="citizenship"></div>
+	<div>Tags: <input type="text" placeholder="comma separated string" id="tags"></div>
+	<div><button id="submit" onclick="addScholarship()" disabled>Add Scholarship</button></div>
+
+	<script src="./script.js"></script>
+</body>
+</html>
