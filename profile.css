@@ -65,6 +65,7 @@ span{
     line-height:40px;
     font-size: 23px;
     box-shadow: 3px 3px 3px #888888; 
+    z-index: 1; position:relative;
     
 }
 .profile_select{
@@ -73,6 +74,7 @@ span{
     line-height:40px;
     font-size: 23px;
     box-shadow: 3px 3px 3px #888888;  
+    z-index: 1; position:relative;
 
 }
 
@@ -107,8 +109,9 @@ input::-webkit-input-placeholder{
     margin:auto;
     height:20px;
     text-align:center;
-    font-weight:  bold;
+    font-weight:bold;
     font-size:22px;
+    z-index: 2; position:relative;
 }
 .error-message-container {
     margin:auto;
