@@ -27,9 +27,12 @@
 
 </head>
 <body>
-	<div id="scholarship-modal">
+	<dialog id="advanced-search-modal">
+		<iframe id="advanced-search-iframe" src="./advanced_search_overlay.html"></iframe>
+	</dialog>
+	<dialog id="scholarship-modal">
 		<iframe id="scholarship-iframe" src=""></iframe>
-	</div>
+	</dialog>
 
 	<div id="header-container">
 		<div id="site-name" onclick="location.href='./main_page.html'" tabindex="0">
@@ -48,7 +51,7 @@
 		</form>
 		<div id="advanced-search-container">
 			<a id="reset-search" tabindex="0" href="" onclick="return false;">Clear Search</a>
-			<a id="advanced-search" tabindex="0" href="./Andrew%20Canafe/adv-search.html">Advanced Search</a>
+			<a id="advanced-search" tabindex="0" onclick="return false;" href="">Advanced Search</a>
 		</div>
 	</div>
 

@@ -5,12 +5,6 @@ var db = firebase.firestore();
 var thisURL =document.URL;
 var uID;
 
-try {
-    uID = thisURL.split('?')[1].split('uID=')[1];
-} catch(error) {
-
-}
-
 // Disable deprecated features
 db.settings({
   timestampsInSnapshots: true
@@ -20,7 +14,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) 
     {
         console.log("Logged in");
-        document.getElementById("searchbar").value = user.email;
+        uID = user.uid;
+        document.getElementById("searchbar").value = uID;
     }
     else
     {
@@ -34,17 +29,6 @@ function logout() {
     console.log("Logout")
 
     firebase.auth().signOut();
-}
-
-// Get the modal
-var modal = document.getElementById('scholarship-modal');
-var frame = document.getElementById("scholarship-iframe");
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeOverlay();
-    }
 }
 
 function applyButtons() {
@@ -74,6 +58,18 @@ function applyButtons() {
         if (e.keyCode === 13) {
             e.target.click();
         }
+    });
+
+    document.getElementById("advanced-search").addEventListener("click", function(e) {
+        document.getElementById("advanced-search-modal").showModal();
+    });
+
+    document.getElementById("advanced-search-modal").addEventListener("click", function(e) {
+        document.getElementById("advanced-search-modal").close();
+    });
+
+    document.getElementById("scholarship-modal").addEventListener("click", function(e) {
+        closeOverlay();
     });
 }
 
@@ -131,8 +127,8 @@ function addScholarship(doc) {
     scholarship.appendChild(overview);
 
     scholarship.addEventListener("click", function(e) {
-        modal.style.display = "flex";
-        frame.setAttribute("src", "./scholarship_overlay.html?sid=" + e.target.closest(".scholarship").getAttribute("sid"));
+        document.getElementById("scholarship-modal").showModal();
+        document.getElementById("scholarship-iframe").setAttribute("src", "./scholarship_overlay.html?sid=" + e.target.closest(".scholarship").getAttribute("sid"));
     });
 
     scholarship.addEventListener("keyup", function(e) {
@@ -161,8 +157,8 @@ function onMessage(event) {
 
 // Function to be called from iframe
 function closeOverlay() {
-    modal.style.display = "none";
-    frame.setAttribute("src", "")
+    document.getElementById("scholarship-modal").close();
+    document.getElementById("scholarship-iframe").setAttribute("src", "")
 }
 
 function getSearchTerms() {
