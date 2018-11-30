@@ -8,13 +8,14 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <title>Your Profile</title>
 	<link href="./profile.css" rel="stylesheet" />
-	<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Economica|Open Sans">
+	<link href="./Xiaojian%20Chen/Button.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Economica|Open Sans">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
 </head>
 <body>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 	<script src="./Xiaojian%20Chen/Initialize_Firebase.js"></script> <!--Initialize FireBase-->
-
-
+	<script src="./Xiaojian%20Chen/Profile_Creation.js"></script>
 <div class="header">
      	<div class="custom_header">
     			<div class="avatar">
@@ -24,46 +25,96 @@
 		</div>
 	<button class="back_button" onclick="goback()">GO BACK</button>
 </div>
-<div class="custom_body">
-		<table>
-        	<tr>
-            	<td>First Name:</td>
-            	<td class="textarea_field">
-					<input class="textarea" type="text" id="firstName">
-				</td>
-        	</tr>	
-			<tr>
-				<td>Last Name:</td>
-				<td class="textarea_field">
-					<input class="textarea" type="text" id="lastName">
-				</td>
-			</tr>
-			<tr>
-				<td>School</td>
-				<td class="textarea_field">
-					<input class="textarea" type="text" id="school">
-				</td>
-			</tr>
-			<tr>
-				<td>Degree</td>
-				<td class="textarea_field">
-					<input class="textarea" type="text" id="degree">
-				</td>
-			</tr>
-			<tr>
-				<td>Graduation Year</td>
-				<td class="textarea_field">
-					<input class="textarea" type="text" id="raduationYear">
-				</td>
-			</tr>
-			<tr>
-				<td>Year</td>
-				<td class="textarea_field">
-					<input class="textarea" type="text" id="year">
-				</td>
-			</tr>
-		</table>
-</div>
+<div id = "main_container">
+		<div id="err_container">
+		  <div class="error-message-container" id="error-message-container">
+			<span class="error-message" id="error-message">Error message</span>
+		  </div>
+		</div>
+		<div id = "profile_container">
+  
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> First Name:     </span>
+			<input class="profile_textarea" type="text" id="create_firstName" placeholder="FIRST NAME">
+		  </div>
+  
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> Last Name:      </span>
+			<input class="profile_textarea" type="text" id="create_lastName" placeholder="LAST NAME">
+		  </div>
+  
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> Major:           </span>
+			<input class="profile_textarea" type="text" id="create_major" placeholder="MAJOR">
+		  </div>
+  
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> Graduation Year: </span>
+			<input class="profile_textarea" type="text" id="create_graduationYear" placeholder="GRADUATION YEAR" >
+		  </div>
+  
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> GPA: </span>
+			<input class="profile_textarea" type="text" id="create_gpa" placeholder="GPA" >
+		  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> School:          </span>
+			<select class = "profile_select" id="school_select">
+			  <option value = "UCLA">UCLA</option>
+			  <option value = "UCSD">UCSD</option>
+			  <option value = "UCB">UCB</option>
+			  <option value = "Other">Other</option>
+			</select>
+		  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> Degree:          </span>
+			<select class = "profile_select" id="degree_select">
+				<option value = "Associate of Arts (A.A.)">Associate of Arts (A.A.)</option>
+				<option value = "Associate of Science (A.S.)">Associate of Science (A.S.)</option>
+				<option value = "Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
+				<option value = "Bachelor of Science degree (B.S.)">Bachelor of Science degree (B.S.)</option>
+				<option value = "Master of Arts (M.A.)">Master of Arts (M.A.)</option>
+				<option value = "Master of Science (M.S.)">Master of Science (M.S.)</option>
+				<option value = "Ph.D">Ph.D</option>
+				<option value = "Other">Other</option>
+			  </select>
+			</div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> Year: </span>
+			  <select class = "profile_select" id="year_select">
+				  <option value = "Freshman">Freshman</option>
+				  <option value = "Sophomore">Sophomore</option>
+				  <option value = "Junior">Junior</option>
+				  <option value = "Senior">BSenior</option>
+				  <option value = "Other">Other</option>
+				</select>
+			  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> Ethnicity: </span>
+			  <select class = "profile_select" id="ethnicity_select">
+				  <option value = "White">White</option>
+				  <option value = "Hispanic/Latino">Hispanic/Latino</option>
+				  <option value = "African American">African American</option>
+				  <option value = "American Indian">American Indian</option>
+				  <option value = "Asian">Asian</option>
+				  <option value = "Other">Other</option>
+				</select>
+			  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> US Citizenship: </span>
+			  <select class = "profile_select" id="us_citizenship_select">
+				  <option value = "Yes">Yes</option>
+				  <option value = "No">No</option>
+				</select>
+			  </div>
+			  
+  
+		</div>
 <div class="custom_button">
 		<button class="edit_button">EDIT</button>
 		<button class="cancel_button">CANCEL CHANGES</button>
