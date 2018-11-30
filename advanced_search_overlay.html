@@ -8,65 +8,66 @@
 <body>
     <div class="container">
         <h1 class="title">Advanced Search</h1>
-        <label>Min Award Amount:
-            <input class="input-field" type="number" min="0" step="0.01" placeholder="Ex: 1000"/>
-        </label>
-        <label>Max Essay Count:
-            <input class="input-field" type="number" min="0" placeholder="Ex: 2"/>
-        </label>
-        <label>Major:
-            <select class="input-field" name="major">
-                <option value="" disabled selected hidden>Select a major...</option>
-                <option value="comp-sci">Computer Science</option>
-                <option value="elec-engr">Electrical Engineering</option>
-                <option value="civil-engr">Civil Engineering</option>
-            </select>
-        </label>
-        <label>Ethnicity:
-            <select class="input-field" name="ethnicity">
-                <option value="" disabled selected hidden>Select ethnicity requirement...</option>
-                <option value="any">Any</option>
-                <option value="asian">Asian</option>
-                <option value="black-african-american">Black or African American</option>
-                <option value="hispanic-latino">Hispanic or Latino</option>
-                <option value="white">White</option>
-            </select>
-        </label>
-        <label>Grad Year:
-            <input class="input-field" type="number" min="2018" placeholder="Ex: 2020"/>
-        </label>
-        <label>Class Level:
-            <select class="input-field" name="class-level">
-                <option value="" disabled selected hidden>Select your class level...</option>
-                <option value="freshman">Freshman</option>
-                <option value="sophomore">Sophomore</option>
-                <option value="junior">Junior</option>
-                <option value="senior">Senior</option>
-            </select>
-        </label>
-        <label>Degree:
-            <select class="input-field" name="degree">
-                <option value="" disabled selected hidden>Select your degree level...</option>
-                <option value="0">B.S. (Bachelor of Science)</option>
-                <option value="1">Graduate Degree</option>
-                <option value="2">Ph.D (Doctor of Philosophy)</option>
-            </select>
-        </label>
-        <label>Required GPA (Max):
-            <input class="input-field" type="number" min="0" max="4" step="0.01" placeholder="Ex: 3.50"/>
-        </label>
-        <label>Citizenship:
-            <label>
-                <input type="radio" name="citizenship" value="Yes"/>
-                Yes
-            </label>
-            <label>
-                <input type="radio" name="citizenship" value="No" />
-                No
-            </label>
-        </label>
+        
+        <div class="form-container">
+            <div class="form-label-container">
+                <label for="min-award">Min Award Amount:</label>
+                <label for="max-essay">Max Essay Count:</label>
+                <label for="major">Major:</label>
+                <label for="ethnicity">Ethnicity:</label>
+                <label for="grad-year">Grad Year:</label>
+                <label for="class-year">Class Level:</label>
+                <label for="degree">Degree:</label>
+                <label for="gpa-max">Required GPA (Max):</label>
+                <label for="citizenship">Citizenship:</label>
+            </div>
+            
+            <div class="form-element-container">
+                <input class="input-field" id="min-award" type="number" min="0" step="0.01" placeholder="Ex: 1000"/>
+                <input class="input-field" id="max-essay" type="number" min="0" placeholder="Ex: 2"/>
+                <select class="input-field" id="major" name="major">
+                    <option value="" disabled selected hidden>Select a major...</option>
+                    <option value="comp-sci">Computer Science</option>
+                    <option value="elec-engr">Electrical Engineering</option>
+                    <option value="civil-engr">Civil Engineering</option>
+                </select>
+                <select class="input-field" id="ethnicity" name="ethnicity">
+                    <option value="" disabled selected hidden>Select ethnicity requirement...</option>
+                    <option value="any">Any</option>
+                    <option value="asian">Asian</option>
+                    <option value="black-african-american">Black or African American</option>
+                    <option value="hispanic-latino">Hispanic or Latino</option>
+                    <option value="white">White</option>
+                </select>
+                <input class="input-field" id="grad-year" type="number" min="2018" placeholder="Ex: 2020"/>
+                <select class="input-field" id="class-year" name="class-level">
+                    <option value="" disabled selected hidden>Select your class level...</option>
+                    <option value="freshman">Freshman</option>
+                    <option value="sophomore">Sophomore</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <select class="input-field" id="degree" name="degree">
+                    <option value="" disabled selected hidden>Select your degree level...</option>
+                    <option value="0">B.S. (Bachelor of Science)</option>
+                    <option value="1">Graduate Degree</option>
+                    <option value="2">Ph.D (Doctor of Philosophy)</option>
+                </select>
+                <input class="input-field" id="gpa-max" type="number" min="0" max="4" step="0.01" placeholder="Ex: 3.50"/>
+                <div class="radio-options" id="citizenship">
+                    <label>
+                        <input type="radio" name="citizenship" value="Yes"/>
+                        Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="citizenship" value="No" />
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
 
-        <div class="form-buttons">
+        <div class="form-buttons-container">
             <button class="button cancel-button">Cancel</button>
             <button class="button search-button">Search</button>
         </div>
