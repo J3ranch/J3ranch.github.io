@@ -19,17 +19,24 @@ function summit(){
     var SH = document.getElementById("school_select").value;
     var DG = document.getElementById("degree_select").value;
     var CL = document.getElementById("classLevel_select").value;
-    var GPA = document.getElementById('create_gpa').value;
+    var GPA = parseFloat(document.getElementById('create_gpa').value).toFixed(2);
     var Eth = document.getElementById('ethnicity_select').value;
     var USC = document.getElementById('us_citizenship_select').value
 
+    //checking the input of first name and last name
     if (FN.length === 0 || LN.length === 0) {
-        console.log("Enter your First Name and/or Last Name");
+        console.log("Please enter your First Name and/or Last Name");
         document.getElementById("error-message-container").style.display = "initial";
         errorDialog.textContent = "Enter your First Name and/or Last Name";
         document.getElementById("create_firstName").classList.add("error");
         document.getElementById("create_lastName").classList.add("error");
         
+     //checking the input of GPA   
+    }else if(GPA<0 || GPA >4){
+        console.log("Please enter a valid GPA number (0~4)");
+        document.getElementById("error-message-container").style.display = "initial";
+        errorDialog.textContent = "Enter a valid GPA number (0~4)";
+        document.getElementById("create_gpa").classList.add("error");
     }else{
         writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, CL,GPA,Eth,USC);
         setTimeout(function(){

@@ -25,6 +25,7 @@ h2{
 }
 
 ul{
+    height: 600px;
     list-style-type: none;
     padding: 0;
     overflow-y: scroll;
@@ -37,7 +38,7 @@ li{
     color: #555;
     position: relative;
     border-bottom: 1px solid #e6e6e6;
-    height: 180px;
+    height: 270px;
 }
 
 li:nth-child(even){
@@ -62,7 +63,7 @@ li span:nth-child(1){
 
 li button{
     position: absolute;
-    top: 90px;
+    top: 135px;
     right: 90px;
     background: rgba(255,255,255,0.6);
     width: 70px;

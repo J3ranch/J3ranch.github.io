@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>UCSchoLArships</title>
+		<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans" rel="stylesheet">
+		<link href="landing-page.css" rel="stylesheet" />
+		<link href="./scholarship-host.css" rel="stylesheet" type="text/css">
+    	<link href="../style.css" rel="stylesheet" type="text/css">
+		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+        <script>
+			// Initialize Firebase
+            var config = {
+				apiKey: "AIzaSyDwpG2spmCwUbpEH6daawXj5Qgo4CldOr0",
+                authDomain: "ucscholarship-10628.firebaseapp.com",
+                databaseURL: "https://ucscholarship-10628.firebaseio.com",
+                projectId: "ucscholarship-10628",
+                storageBucket: "ucscholarship-10628.appspot.com",
+                messagingSenderId: "877779845443"
+            };
+            firebase.initializeApp(config);
+		</script>
+  		<script src="../scholarship-host.js"></script>
+  	</head>
+
+<body>
+
+
+<table>
+	<tr>
+		<td class="top-left"><a href="index.html" class="land-button"><b>UCSchoLArships</b></a></td>
+		<td class="top-right"><a href="#"><img src="placeholder3.png" alt="Placeholder" onclick="location.href='../account_settings.html'"></a><button class="green-button" onclick="logout()">Logout</button></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<td><input type="text" id="search-box" title="Type in a category" placeholder="Search for scholarships"></td>
+	</tr>
+	<tr>
+		<td style="width: 80%; margin: auto; display: block; text-align: right; padding: 0px 0px 40px 0px;"><a href="adv-search.html">Advanced Search</a></td>
+	</tr>
+</table>
+
+<table class="main-table">
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Engineering Scholarship A</b><br>&nbsp;&nbsp;$ 1,500<br>&nbsp;&nbsp;2 Essays<br>&nbsp;&nbsp;1 Interview</td>
+	</tr>
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Engineering Scholarship B</b><br>&nbsp;&nbsp;$ 1,250<br>&nbsp;&nbsp;Electrical Engineering Majors Only<br>&nbsp;&nbsp;1 Essay</td>
+	</tr>
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Computer Science Scholarship C</b><br>&nbsp;&nbsp;$ 1,000<br>&nbsp;&nbsp;Computer Science Majors Only<br>&nbsp;&nbsp;1 Essay</td>
+	</tr>
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Engineering Scholarship D</b><br>&nbsp;&nbsp;$ 1,500<br>&nbsp;&nbsp;2 Essays<br>&nbsp;&nbsp;1 Interview</td>
+	</tr>
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Engineering Scholarship E</b><br>&nbsp;&nbsp;$ 1,250<br>&nbsp;&nbsp;Electrical Engineering Majors Only<br>&nbsp;&nbsp;1 Essay</td>
+	</tr>
+	<tr class="main-tr">
+		<td style="width:15%;"><img src="placeholder.png" alt="Placeholder"></td>
+		<td style="width:85%;"><b>Generic Computer Science Scholarship F</b><br>&nbsp;&nbsp;$ 1,000<br>&nbsp;&nbsp;Computer Science Majors Only<br>&nbsp;&nbsp;1 Essay</td>
+	</tr>
+</table>
+
+
+<table>
+	<tr>
+		<td style="text-align:center;">
+		<br>
+		<a href="index.html">Previous</a>&nbsp;&nbsp;<a href="index.html">1</a>&nbsp;&nbsp;<a href="index.html">2</a>&nbsp;&nbsp;<a href="index.html">3</a>&nbsp;&nbsp;<a href="index.html">4</a>&nbsp;&nbsp;<a href="index.html">5</a>&nbsp;&nbsp;<a href="index.html">Next</a>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;">
+			Questions?&nbsp;&nbsp;<button href="#" class="white-button" onclick="openChat()">Ask a counselor</button>
+		</td>
+	</tr>
+</table>
+
+	<div id="scholarship-modal">
+		<iframe id="scholarship-iframe" src="./scholarship-overlay.html"></iframe>
+	</div>
+
+<script>
+var input = document.getElementById("search-box");
+input.focus();
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+		window.location.href = "index.html";
+    }
+});
+</script>
+
+</body>
+</html>
