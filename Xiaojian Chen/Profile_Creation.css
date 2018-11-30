@@ -82,7 +82,7 @@ input::-webkit-input-placeholder{
 }
 
 #err_container{
-    margin:auto;
+    margin-bottom:25px;
     height:20px;
     text-align:center;
     font-weight:  bold;

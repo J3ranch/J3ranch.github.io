@@ -24,19 +24,46 @@ function summit(){
     var USC = document.getElementById('us_citizenship_select').value
 
     //checking the input of first name and last name
-    if (FN.length === 0 || LN.length === 0) {
-        console.log("Please enter your First Name and/or Last Name");
-        document.getElementById("error-message-container").style.display = "initial";
-        errorDialog.textContent = "Enter your First Name and/or Last Name";
+    if (FN.length == 0) {
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please enter your first name";
         document.getElementById("create_firstName").classList.add("error");
+    } else if (LN.length == 0) {
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please enter your last name";
         document.getElementById("create_lastName").classList.add("error");
-        
-     //checking the input of GPA   
-    }else if(GPA<0 || GPA >4){
-        console.log("Please enter a valid GPA number (0~4)");
-        document.getElementById("error-message-container").style.display = "initial";
-        errorDialog.textContent = "Enter a valid GPA number (0~4)";
+    } else if (MJ.length == 0) {
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please enter your major";
+        document.getElementById("create_major").classList.add("error");
+    } else if (GYR.length != 4 || isNaN(GYR)) {
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please enter a valid year";
+        document.getElementById("create_graduationYear").classList.add("error");
+    } else if (GPA.length == 0 || isNaN(GPA) || parseFloat(GPA).toFixed(2) < 0 || parseFloat(GPA).toFixed(2) > 4) {
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please enter a valid GPA (0-4)";
         document.getElementById("create_gpa").classList.add("error");
+    }else if(SH=="School"){
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please Select your School";
+        document.getElementById("school_select").classList.add("error");
+    }else if(DG=="Degree"){
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please Select your Degree";
+        document.getElementById("degree_select").classList.add("error");
+    }else if(CL=="Class Level"){
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please Select your Class Level";
+        document.getElementById("classLevel_select").classList.add("error");
+    }else if(Eth=="Ethnicity"){
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please Select your Ethnicity";
+        document.getElementById("ethnicity_select").classList.add("error");
+    }else if(USC=="US Citizenship"){
+        document.getElementById("error-message-container").style.display = "inline-block";
+        errorDialog.textContent = "Please Select your US Citizenship status";
+        document.getElementById("us_citizenship_select").classList.add("error");
     }else{
         writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, CL,GPA,Eth,USC);
         setTimeout(function(){

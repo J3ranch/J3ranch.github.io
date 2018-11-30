@@ -60,7 +60,7 @@ function submit() {
   } else if (LN.length == 0) {
     document.getElementById("error-message-container").style.display = "inline-block";
     errorDialog.textContent = "Please enter your last name";
-    document.getElementById("create_firstName").classList.add("error");
+    document.getElementById("create_lastName").classList.add("error");
   } else if (MJ.length == 0) {
     document.getElementById("error-message-container").style.display = "inline-block";
     errorDialog.textContent = "Please enter your major";
