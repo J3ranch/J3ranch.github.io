@@ -12,8 +12,14 @@ function renderStudent(doc){
     let major = document.createElement('span');
     let degree = document.createElement('span');
     let graduation_year = document.createElement('span');
-    let year = document.createElement('span');
+    let class_level = document.createElement('span');
+    let gpa = document.createElement('span');
+    let ethnicity = document.createElement('span');
+    let us_citizenship = document.createElement('span');
+
     let chatButton = document.createElement('button');
+    
+
 
     li.setAttribute('data-id', doc.id);
     li.setAttribute('FName', doc.data().First_Name);
@@ -23,7 +29,12 @@ function renderStudent(doc){
     major.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Major: " +doc.data().Major;
     degree.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Degree: " +doc.data().Degree;
     graduation_year.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Graduation Year: " +doc.data().Graduation_Year;
-    year.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Year: " +doc.data().Year;
+    class_level.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Class Level: " +doc.data().Class_Level;
+    gpa.innerHTML = "<i class='fas fa-angle-right'></i>  "+"GPA: " +doc.data().GPA;
+    ethnicity.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Ethnicity: " +doc.data().Ethnicity;
+    us_citizenship.innerHTML = "<i class='fas fa-angle-right'></i>  "+"US Citizenship: " +doc.data().US_Citizenship;
+
+
     chatButton.innerHTML = 'Chat';
 
     li.appendChild(name);
@@ -31,7 +42,10 @@ function renderStudent(doc){
     li.appendChild(major);
     li.appendChild(degree);
     li.appendChild(graduation_year);
-    li.appendChild(year);
+    li.appendChild(class_level);
+    li.appendChild(gpa);
+    li.appendChild(ethnicity);
+    li.appendChild(us_citizenship);
     li.appendChild(chatButton);
     //console.log(li);
 
