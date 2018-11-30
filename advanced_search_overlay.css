@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+    font-family: "Economica", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 150px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-align: center;
+}
+
+.input-field {
+    width: 50%;
+
+    /* border-radius: 50px; */
+    margin: 0 0 0px 5px;
+    padding: 6px 15px 5px 5px;
+    border: 1px solid darkgray;
+    box-shadow: 0px 1px 3px 1px #0000003f;
+    transition: background-color 0.3s;
+}
+
+.input-field:hover {
+    background-color: lightgray;
+    transition: background-color 0.3s;
+}
+
+.input-field:focus {
+    border: 1px solid rgb(39, 95, 199);  
+    background: rgba(39, 95, 199, 0.144);
+    outline: none;
+}
+
+label {
+    margin: 0 0 10px 60px;
+    /* margin: 10px 8px 10px 5px; */
+}
+
+.form-element {
+    margin: 0 0 10px 10px;
+}
+
+.form-buttons {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+
+    width: 150px;
+}
+
+.button {
+    padding: 7px 10px 6px 10px;
+    box-shadow: 0px 1px 3px 1px #0000003f;
+    /* border-radius: 25px; */
+}
+
+.cancel-button {
+    border: 1px solid rgb(39, 95, 199);
+    background-color: transparent;
+    color: rgb(39, 95, 199);
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: cornflowerblue;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.search-button {
+    background-color: limegreen;
+    border: 1px solid #1b881b;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #27a727;
+    border-color: #1b881b;
+    transition: background-color 0.3s, border-color 0.3s;
+}

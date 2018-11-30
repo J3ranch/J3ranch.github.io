@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>UCSchoLArship - Advanced Search</title>
+    <link rel="stylesheet" href="advanced_search_overlay.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Advanced Search</h1>
+        <label>Min Award Amount:
+            <input class="input-field" type="number" min="0" step="0.01" placeholder="Ex: 1000"/>
+        </label>
+        <label>Max Essay Count:
+            <input class="input-field" type="number" min="0" placeholder="Ex: 2"/>
+        </label>
+        <label>Major:
+            <select class="input-field" name="major">
+                <option value="" disabled selected hidden>Select a major...</option>
+                <option value="comp-sci">Computer Science</option>
+                <option value="elec-engr">Electrical Engineering</option>
+                <option value="civil-engr">Civil Engineering</option>
+            </select>
+        </label>
+        <label>Ethnicity:
+            <select class="input-field" name="ethnicity">
+                <option value="" disabled selected hidden>Select ethnicity requirement...</option>
+                <option value="any">Any</option>
+                <option value="asian">Asian</option>
+                <option value="black-african-american">Black or African American</option>
+                <option value="hispanic-latino">Hispanic or Latino</option>
+                <option value="white">White</option>
+            </select>
+        </label>
+        <label>Grad Year:
+            <input class="input-field" type="number" min="2018" placeholder="Ex: 2020"/>
+        </label>
+        <label>Class Level:
+            <select class="input-field" name="class-level">
+                <option value="" disabled selected hidden>Select your class level...</option>
+                <option value="freshman">Freshman</option>
+                <option value="sophomore">Sophomore</option>
+                <option value="junior">Junior</option>
+                <option value="senior">Senior</option>
+            </select>
+        </label>
+        <label>Degree:
+            <select class="input-field" name="degree">
+                <option value="" disabled selected hidden>Select your degree level...</option>
+                <option value="0">B.S. (Bachelor of Science)</option>
+                <option value="1">Graduate Degree</option>
+                <option value="2">Ph.D (Doctor of Philosophy)</option>
+            </select>
+        </label>
+        <label>Required GPA (Max):
+            <input class="input-field" type="number" min="0" max="4" step="0.01" placeholder="Ex: 3.50"/>
+        </label>
+        <label>Citizenship:
+            <label>
+                <input type="radio" name="citizenship" value="Yes"/>
+                Yes
+            </label>
+            <label>
+                <input type="radio" name="citizenship" value="No" />
+                No
+            </label>
+        </label>
+
+        <div class="form-buttons">
+            <button class="button cancel-button">Cancel</button>
+            <button class="button search-button">Search</button>
+        </div>
+    </div>
+</body>
+</html>
