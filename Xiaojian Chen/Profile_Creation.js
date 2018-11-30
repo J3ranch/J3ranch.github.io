@@ -60,7 +60,7 @@ function summit(){
         document.getElementById("error-message-container").style.display = "inline-block";
         errorDialog.textContent = "Please Select your Ethnicity";
         document.getElementById("ethnicity_select").classList.add("error");
-    }else if(USC=="US_Citizenship"){
+    }else if(USC=="US Citizenship"){
         document.getElementById("error-message-container").style.display = "inline-block";
         errorDialog.textContent = "Please Select your US Citizenship status";
         document.getElementById("us_citizenship_select").classList.add("error");
