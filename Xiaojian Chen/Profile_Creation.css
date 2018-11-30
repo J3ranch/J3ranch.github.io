@@ -40,6 +40,14 @@ h1{
     box-shadow: 3px 3px 3px #888888; 
     
 }
+.creation_select{
+    width: 705px;
+    height: 40px;
+    line-height:40px;
+    font-size: 23px;
+    box-shadow: 3px 3px 3px #888888; 
+
+}
 
 .creation_textarea:hover{
     background-color: lightgray;

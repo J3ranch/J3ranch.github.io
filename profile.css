@@ -70,6 +70,11 @@ td{
     align-items: center;
     justify-content: center;
 }
+
+.edit_button{
+    
+}
+
 .cancel_button{
     position: relative;
     color:#4b4b4b;
