@@ -40,7 +40,11 @@
         </div>
 
         <div class="creation_textarea_field">
-            <input class="creation_textarea" type="text" id="create_major" placeholder=" MAJOR">
+            <select class="creation_select" type="text" id="create_major" placeholder=" MAJOR">
+              <option value="" disabled selected hidden>Select a major...</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
         </div>
 
         <div class="creation_textarea_field">
@@ -53,7 +57,7 @@
 
         <div class="creation_select_field">
           <select class = "creation_select" id="school_select">
-            <option value = "School">School</option>
+            <option value = "" disabled selected hidden>School</option>
             <option value = "UCLA">UCLA</option>
             <option value = "UCSD">UCSD</option>
             <option value = "UCB">UCB</option>
@@ -63,46 +67,42 @@
 
         <div class="creation_select_field">
           <select class = "creation_select" id="degree_select">
-              <option value = "Degree">Degree</option>
-              <option value = "Associate of Arts (A.A.)">Associate of Arts (A.A.)</option>
-              <option value = "Associate of Science (A.S.)">Associate of Science (A.S.)</option>
-              <option value = "Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
-              <option value = "Bachelor of Science degree (B.S.)">Bachelor of Science degree (B.S.)</option>
-              <option value = "Master of Arts (M.A.)">Master of Arts (M.A.)</option>
-              <option value = "Master of Science (M.S.)">Master of Science (M.S.)</option>
-              <option value = "Ph.D">Ph.D</option>
-              <option value = "Other">Other</option>
+              <option value = "Degree" disabled selected hidden>Degree</option>
+              <option value = "0">Bachelor's Degree</option>
+              <option value = "1">Master's Degree</option>
+              <option value = "2">Ph.D</option>
+              <option value = "99">Other</option>
             </select>
           </div>
 
         <div class="creation_select_field">
             <select class = "creation_select" id="classLevel_select">
-                <option value = "Class Level">Class Level</option>
-                <option value = "Freshman">Freshman</option>
-                <option value = "Sophomore">Sophomore</option>
-                <option value = "Junior">Junior</option>
-                <option value = "Senior">Senior</option>
-                <option value = "Other">Other</option>
+                <option value = "Class Level" disabled selected hidden>Class Level</option>
+                <option value = "0">Freshman</option>
+                <option value = "1">Sophomore</option>
+                <option value = "2">Junior</option>
+                <option value = "3">Senior</option>
+                <option value = "99">Other</option>
               </select>
         </div>
 
         <div class="creation_select_field">
           <select class = "creation_select" id="ethnicity_select">
-            <option value = "Ethnicity">Ethnicity</option>
+            <option value = "Ethnicity" selected disabled hidden>Ethnicity</option>
             <option value = "White">White</option>
-            <option value = "Hispanic or Latino">Hispanic or Latino</option>
-            <option value = " African American"> African American</option>
-            <option value = "American Indian">American Indian</option>
+            <option value = "Hispanic Latino">Hispanic or Latino</option>
+            <option value = "Black African American"> African American</option>
+            <option value = "Native American">Native American</option>
             <option value = "Asian">Asian </option>
-            <option value = "Other">Other </option>
+            <option value = "Any">Other </option>
           </select>
         </div>
 
         <div class="creation_select_field">
           <select class = "creation_select" id="us_citizenship_select">
-            <option value = "US Citizenship">US Citizenship</option>
-            <option value = "Yes">Yes</option>
-            <option value = "No">No</option>
+            <option value = "US Citizenship" selected disabled hidden>US Citizenship</option>
+            <option value = "true">Yes</option>
+            <option value = "false">No</option>
           </select>
         </div>    
 

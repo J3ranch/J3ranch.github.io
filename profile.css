@@ -1,110 +1,121 @@
-
 @import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
 
-.header{
+html {
+    margin: 0px;
+    padding: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
-    margin:auto;
-    background-color:white;
-    border-bottom: 1px solid #cccccc;
-    width:850px;
-}
-.custom_header{
-    display: flex;
-    
-}
-.avatar{
-    display: block;
-}
-.title{
-    display: block;
-    font-size: 36px;
-    padding: 40px;
-    font-family: Economica, serif;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
-    margin-top: 50px;
-	margin-left: auto;
-    margin-right: auto;
-    width: 50em;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
     font-family: "Economica", sans-serif;
-    
-}
-#main_container{
-    margin-top:10px;
-    margin-bottom:auto;
+    border-bottom: solid 1px #B9B9B9;
+    box-shadow: 0px 1px 10px 1px #B9B9B9;
+    padding: 20px 100px 20px 100px;
 }
 
-#profile_container{
-    font-size: 350%;
-    margin-left:50px;
-    text-align:left;
-    height: 550px;
-    width: 850px;
+.avatar img{
+    height: 100px;
+    width: 100px;
 
+    border-radius: 50%;
+
+    margin: 0px 50px 0px 50px;
+}
+
+.title {
+    font-size: 48pt;
+    margin: 0px 20px 0px 20px;
+}
+
+.custom_header {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.back_button {
+    align-self: flex-start;
+    margin: 0px 50px 0px 50px;
+}
+
+#profile_container {
+    font-family: "Economica", sans-serif;
+    font-size: 32pt;
+
+    height: 58vh;
+    width: 50vw;
     overflow-y: scroll;
 
-    border-bottom:2px solid;
-    border-color: gray;
-}
-
-.lebal{
-    font-size: 23px;
-    text-align: left;
-    width: 140px;
-    display:inline-block;
-    
+    box-shadow: 0px 1px 10px 1px #B9B9B9;
 }
 
 .profile_textarea{
-    width: 600px;
+    width: 60%;
     height: 40px;
     line-height:40px;
     font-size: 23px;
     box-shadow: 3px 3px 3px #888888; 
     z-index: 1; position:relative;
-    
+
+    float: right;
+
+    border: solid 1px gray;
+
+    font-family: "Open Sans", sans-serif;
 }
+
+.profile_textarea_field,
+.profile_select_field {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 5px;
+    padding: 10px;
+}
+
 .profile_select{
-    width: 605px;
+    width: 61%;
     height: 40px;
     line-height:40px;
     font-size: 23px;
     box-shadow: 3px 3px 3px #888888;  
     z-index: 1; position:relative;
 
-}
-
-.profile_textarea:hover{
-    background-color: lightgray;
-    color: black;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-input::-webkit-input-placeholder{
-    font-size: 23px;
-    margin:center;
-    line-height:40px;
-}
-
-#profile_summit_btn_container{
-    font-size: 350%;
-    margin: auto;
-    text-align:center;
-    margin-bottom: 50px;
-}
-
-
-#profile_summit_btn {
-    width:250px;
-    height:45px;
-    font-size:25px;
-    font-family: 'Open Sans', sans-serif;
+    float: right;
+    font-family: "Open Sans", sans-serif;
 }
 
 #err_container{
-    margin-bottom:25px;
-    height:20px;
+    margin: 10px;
+    height:fit-content;
     text-align:center;
     font-weight:bold;
     font-size:22px;
@@ -118,29 +129,21 @@ input::-webkit-input-placeholder{
     color: #B6232A;
     text-align: center;
     display: none;
+
+    font-family: "Open Sans", sans-serif;
 }
 
 .error, .error:focus {
     border: 1px solid #B6232A;
     background-color: #EFC6C3;
+    font-family: "Open Sans", sans-serif;
 }
 
-.back_button{
-    position: absolute;
-    margin-top: 40px;
-    margin-left:750px;
-    background: rgba(255,255,255,0.6);
-    width: 100px;
-    text-align: center;
-    padding: 10px 0;
-    font-weight:  bold;
-    font-size:25px;
-    cursor:  pointer;
-    font-family: "Economica", sans-serif;
-}
+#button-container {
+    width: 70vw;
 
-.pf_btn{
-    font-size:22px;
-    font-family: 'Open Sans', sans-serif;
-    
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
 }

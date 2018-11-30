@@ -4,6 +4,7 @@ var db = firebase.firestore();
 //process URL data
 var thisURL =document.URL;
 var uID;
+var defaultSearch;
 
 // Disable deprecated features
 db.settings({
@@ -16,6 +17,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("Logged in");
         uID = user.uid;
         document.getElementById("chat-iframe").setAttribute("src","./Xiaojian%20Chen/Chatting.html?uID="+uID);
+        getDefaultSearch();
     }
     else
     {
@@ -218,13 +220,14 @@ function validateSearch(searchbar) {
 
 function search(search) {
     clearResults();
+    console.log(search);
 
     // Required Params and Related Variables
     var today = new Date();
     var keywords = search.keywords;
     var results = [];
 
-    if (keywords.length === 0) {
+    if (keywords == null || keywords.length === 0) {
         search.empty_search = true;
     }
 
@@ -235,7 +238,7 @@ function search(search) {
     var provider = (search.hasOwnProperty("provider") && typeof search.provider === "string") ? search.provider : "Any";
     var ethnicity = (search.hasOwnProperty("ethnicity") && typeof search.ethnicity === "string") ? search.ethnicity : "Any";
     var gradYear = (search.hasOwnProperty("grad_year") && typeof search.grad_year === "number") ? search.grad_year : 0;
-    var classLevel = (search.hasOwnProperty("class_level") && typeof search.class_level === "number") ? search.class_level : 9999;
+    var classLevel = (search.hasOwnProperty("class_level") && typeof search.class_level === "number") ? search.class_level : -1;
     var degree = (search.hasOwnProperty("degree") && typeof search.degree === "number") ? search.degree : 0;
     var maxGPA = (search.hasOwnProperty("max_gpa") && typeof search.max_gpa === "number") ? search.max_gpa : 10;
     var citizenship = (search.hasOwnProperty("citizenship") && typeof search.citizenship === "boolean") ? search.citizenship : 0; 
@@ -258,14 +261,14 @@ function search(search) {
 
             // Optional Param Filter
             if (doc.data().award < minAward) return;
-            if (doc.data().requirements.essays > maxEssays) return;
+            if (parseInt(doc.data().requirements.essays) > maxEssays) return;
             if (major !== "All" && doc.data().requirements.major !== "All" && doc.data().requirements.major !== major) return;
             if (provider !== "Any" && doc.data().provider !== provider) return;
             if (doc.data().requirements.grad_year < gradYear) return;
-            if (doc.data().requirements.class_level > classLevel) return;
+            if (parseInt(doc.data().requirements.year) < classLevel) return;
             if (doc.data().requirements.degree > degree) return;
             if (doc.data().requirements.gpa > maxGPA) return;
-            if (citizenship !== 0 && doc.data().requirement.citizenship !== citizenship) return;
+            if (citizenship !== 0 && doc.data().requirements.citizenship !== citizenship) return;
 
             // Empty Search
             if (search.hasOwnProperty("empty_search") && typeof search.empty_search === "boolean") {
@@ -329,6 +332,33 @@ function clearResults() {
         oldResults[0].parentNode.removeChild(oldResults[0]);
 }
 
+function getDefaultSearch() {
+    var search = {
+        keywords:[],
+        grad_year: 0,
+        max_gpa: 0,
+        citizenship: true,
+        major: "",
+        ethnicity: "Any",
+        class_level: 0,
+        degree: 0
+    };
+
+    db.collection("users").doc(uID).get().then(function(doc) {
+        search.grad_year = parseInt(doc.data().Graduation_Year);
+        search.max_gpa = parseFloat(doc.data().GPA);
+        search.citizenship = doc.data().US_Citizenship === "true";
+        search.major = doc.data().Major;
+        search.ethnicity = doc.data().Ethnicity;
+        search.class_level = parseInt(doc.data().Class_Level);
+        search.degree= parseInt(doc.data().Degree);
+
+        return search;
+    })
+
+    return search;
+}
+
 
 // Run on Start 
 var serverTimeout = setTimeout(function() {
@@ -344,7 +374,6 @@ else if (window.attachEvent) {
 
 applyButtons();
 search({keywords:[]});
-
 
 
 //For open student chat window

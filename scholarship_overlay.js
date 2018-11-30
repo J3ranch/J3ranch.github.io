@@ -107,7 +107,14 @@ function addReqs(doc) {
 		span.innerHTML = doc.data().requirements.major + " Majors";
 
 		document.getElementById("scholarship-reqs").appendChild(span);
+	}
 
+	if (doc.data().requirements.gpa !== undefined && parseFloat(doc.data().requirements.gpa) !== 0) {
+		var span = document.createElement("span");
+		span.setAttribute("class", "overlay-content");
+		span.innerHTML = doc.data().requirements.gpa + " GPA Min.";
+
+		document.getElementById("scholarship-reqs").appendChild(span);
 	}
 }
 

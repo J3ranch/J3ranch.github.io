@@ -37,11 +37,16 @@ function createSearchObject() {
 	}
 
 	if (document.getElementById("gpa-max").value !== "") {
-		searchObj.max_gpa = parseInt(document.getElementById("gpa-max").value);
+		searchObj.max_gpa = parseFloat(document.getElementById("gpa-max").value);
 	}
 
-	if (document.getElementById("citizenship").value !== undefined) {
-		searchObj.citizenship = (document.getElementById("citizenship").value === "true");
+	console.log(document.getElementById("citizenship").value);
+
+	if (document.getElementsByName("citizenship")[0].checked) {
+		console.log("test");
+		searchObj.citizenship = true;
+	} else if (document.getElementsByName("citizenship")[1].checked) {
+		searchObj.citizenship = false;
 	}
 
 	if (document.getElementById("major").value !== "") {

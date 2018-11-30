@@ -90,3 +90,22 @@ function ClearFireStore_clearHistory(){
     })
     console.log("Firesotre Chat Histroy is clear!");
 }
+
+var shifting = false;
+
+document.getElementById("chat_input").addEventListener("keydown", function(e) {
+    if (e.keyCode === 16) {
+        shifting = true;
+    }
+
+    if (!shifting && e.keyCode === 13) {
+        e.preventDefault();
+        sendByStudent();
+    }
+});
+
+document.getElementById("chat_input").addEventListener("keyup", function(e) {
+    if (e.keyCode === 16) {
+        shifting = false;
+    }
+});
