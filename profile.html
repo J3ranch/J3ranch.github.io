@@ -53,10 +53,14 @@
 			<input class="profile_textarea" type="text" id="create_graduationYear" placeholder="GRADUATION YEAR" >
 		  </div>
   
+		  <div class="profile_textarea_field">
+			<span><i class='fas fa-angle-right'></i> GPA: </span>
+			<input class="profile_textarea" type="text" id="create_gpa" placeholder="GPA" >
+		  </div>
+  
 		  <div class="profile_select_field">
 			<span><i class='fas fa-angle-right'></i> School:          </span>
 			<select class = "profile_select" id="school_select">
-			  <option value = "School">School</option>
 			  <option value = "UCLA">UCLA</option>
 			  <option value = "UCSD">UCSD</option>
 			  <option value = "UCB">UCB</option>
@@ -67,7 +71,6 @@
 		  <div class="profile_select_field">
 			<span><i class='fas fa-angle-right'></i> Degree:          </span>
 			<select class = "profile_select" id="degree_select">
-				<option value = "Degree">Degree</option>
 				<option value = "Associate of Arts (A.A.)">Associate of Arts (A.A.)</option>
 				<option value = "Associate of Science (A.S.)">Associate of Science (A.S.)</option>
 				<option value = "Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
@@ -82,12 +85,31 @@
 		  <div class="profile_select_field">
 			<span><i class='fas fa-angle-right'></i> Year: </span>
 			  <select class = "profile_select" id="year_select">
-				  <option value = "Year">Year</option>
 				  <option value = "Freshman">Freshman</option>
 				  <option value = "Sophomore">Sophomore</option>
 				  <option value = "Junior">Junior</option>
 				  <option value = "Senior">BSenior</option>
 				  <option value = "Other">Other</option>
+				</select>
+			  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> Ethnicity: </span>
+			  <select class = "profile_select" id="ethnicity_select">
+				  <option value = "White">White</option>
+				  <option value = "Hispanic/Latino">Hispanic/Latino</option>
+				  <option value = "African American">African American</option>
+				  <option value = "American Indian">American Indian</option>
+				  <option value = "Asian">Asian</option>
+				  <option value = "Other">Other</option>
+				</select>
+			  </div>
+  
+		  <div class="profile_select_field">
+			<span><i class='fas fa-angle-right'></i> US Citizenship: </span>
+			  <select class = "profile_select" id="us_citizenship_select">
+				  <option value = "Yes">Yes</option>
+				  <option value = "No">No</option>
 				</select>
 			  </div>
 			  
