@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <title>UCSchoLArship - Advanced Search</title>
     <link rel="stylesheet" href="advanced_search_overlay.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="container">
         <h1 class="title">Advanced Search</h1>
 
-        <input class="input-field searchbar" id="searchbar"/>
-
         <div class="form-container">
+            <div class="form-row">
+                <label for="searchbar">Keywords:</label>
+                <input class="input-field" id="searchbar" autocomplete="off" />
+            </div>
             <div class="form-row">
                 <label for="min-award">Min Award Amount:</label>
                 <input class="input-field" id="min-award" type="number" min="0" step="0.01" placeholder="Ex: 1000"/>
@@ -72,10 +75,10 @@
             </div>
             <div class="form-row">
                 <label for="citizenship">Citizenship:</label>
-                <div class="radio-options">
-                    <input type="radio" name="citizenship" value="Yes"/>
+                <div class="radio-options" id="citizenship">
+                    <input type="radio" name="citizenship" value="true"/>
                     <label>Yes</label>
-                    <input type="radio" name="citizenship" value="No" />
+                    <input type="radio" name="citizenship" value="false" />
                     <label>No</label>
                 </div>
             </div>
@@ -84,8 +87,8 @@
         <!-- <div class="radio-options" id="citizenship"></div> -->
 
         <div class="form-buttons-container">
-            <button class="button cancel-button">Cancel</button>
-            <button class="button search-button">Search</button>
+            <button class="button cancel-button blue-button">Cancel</button>
+            <button class="button search-button green-button">Search</button>
         </div>
     </div>
 

@@ -5,6 +5,8 @@ document.getElementsByClassName("cancel-button")[0].addEventListener("click", fu
 })
 
 document.getElementsByClassName("search-button")[0].addEventListener("click", function(e) {
+	console.log("hi");
+
 	window.parent.postMessage({
 		'func': 1,
 		'params': createSearchObject()
@@ -12,7 +14,7 @@ document.getElementsByClassName("search-button")[0].addEventListener("click", fu
 })
 
 function createSearchObject() {
-	var searchObj = {keywords:[]}
+	var searchObj = getSearchTerms();
 
 	if (document.getElementById("min-award").value !== "") {
 		searchObj.min_award = parseInt(document.getElementById("min-award").value);
@@ -51,4 +53,34 @@ function createSearchObject() {
 	}
 
 	return searchObj;
+}
+
+function getSearchTerms() {
+    var searchbar = document.getElementById("searchbar");
+    var search;
+
+    if (searchbar.value[0] === "{" && searchbar.value[searchbar.value.length - 1] === "}" && validateSearch(searchbar.value)) {
+        eval("search = " + searchbar.value);
+        console.log(search);
+        return search;
+    } else {
+        search = (searchbar.value.indexOf('"') != -1) ? searchbar.value.match(/"[^"]*"|\b[^"\s]*|/g) : searchbar.value.split(/[\s,]/);
+        search = search.filter(Boolean);
+        search.forEach(function(e, i) {if (/"[^"]*"/.test(e)) {search[i] = e.substring(1, e.length - 1);} });
+
+        console.log(search);
+        return {keywords: search};
+    }
+}
+
+function validateSearch(searchbar) {
+    var obj = {};
+    
+    try {
+        eval("obj = " + searchbar);
+    } catch (error) {
+        return false;
+    }
+
+    return (obj.hasOwnProperty("keywords")) && Array.isArray(obj.keywords);
 }
