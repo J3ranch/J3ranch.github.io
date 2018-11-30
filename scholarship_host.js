@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 function logout() {
 
     console.log("Logout")
-
+    uID = -1;
     firebase.auth().signOut();
 }
 
@@ -38,7 +38,6 @@ function applyButtons() {
     });
 
     document.getElementById("submit-search").addEventListener("click", function(e) {
-        clearResults();
         search(getSearchTerms());
     });
 
@@ -197,6 +196,8 @@ function validateSearch(searchbar) {
 }
 
 function search(search) {
+    clearResults();
+
     // Required Params and Related Variables
     var today = new Date();
     var keywords = search.keywords;
@@ -289,8 +290,6 @@ function search(search) {
 }
 
 function showSearch(results) {
-    clearResults();
-
     if (results.length > 0) {
         results.forEach(function(doc) {
             addScholarship(doc);

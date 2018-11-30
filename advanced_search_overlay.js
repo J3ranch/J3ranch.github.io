@@ -59,18 +59,12 @@ function getSearchTerms() {
     var searchbar = document.getElementById("searchbar");
     var search;
 
-    if (searchbar.value[0] === "{" && searchbar.value[searchbar.value.length - 1] === "}" && validateSearch(searchbar.value)) {
-        eval("search = " + searchbar.value);
-        console.log(search);
-        return search;
-    } else {
-        search = (searchbar.value.indexOf('"') != -1) ? searchbar.value.match(/"[^"]*"|\b[^"\s]*|/g) : searchbar.value.split(/[\s,]/);
-        search = search.filter(Boolean);
-        search.forEach(function(e, i) {if (/"[^"]*"/.test(e)) {search[i] = e.substring(1, e.length - 1);} });
+    search = (searchbar.value.indexOf('"') != -1) ? searchbar.value.match(/"[^"]*"|\b[^"\s]*|/g) : searchbar.value.split(/[\s,]/);
+    search = search.filter(Boolean);
+    search.forEach(function(e, i) {if (/"[^"]*"/.test(e)) {search[i] = e.substring(1, e.length - 1);} });
 
-        console.log(search);
-        return {keywords: search};
-    }
+    console.log(search);
+    return {keywords: search};
 }
 
 function validateSearch(searchbar) {

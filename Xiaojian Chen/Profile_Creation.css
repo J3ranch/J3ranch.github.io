@@ -10,12 +10,12 @@ body {
     
 }
 #main_container{
-    margin-top:150px;
-    margin-bottom:auto;
+    margin-top: 0;
+    margin-bottom: auto;
 }
 h1{
     text-align:	center;
-    font-size: 300%;
+    font-size: 36pt;
     font-family: "Economica", sans-serif;
 }
 
@@ -23,13 +23,10 @@ h1{
     font-size: 350%;
     margin: auto;
     text-align:center;
-    height: 550px;
+    height: 60vh;
     width: 850px;
 
     overflow-y: scroll;
-
-    border-bottom:2px solid;
-    border-color: gray;
 }
 
 .creation_textarea{
@@ -37,7 +34,12 @@ h1{
     height: 40px;
     line-height:40px;
     font-size: 23px;
-    box-shadow: 3px 3px 3px #888888; 
+    box-shadow: 3px 3px 3px #B9B9B9; 
+
+    border: solid 1px #C5C5C5;
+    color: #C5C5C5;
+
+    font-family: "Open Sans", sans-serif;
     
 }
 .creation_select{
@@ -45,8 +47,11 @@ h1{
     height: 40px;
     line-height:40px;
     font-size: 23px;
-    box-shadow: 3px 3px 3px #888888; 
+    box-shadow: 3px 3px 3px #B9B9B9; 
+    border: solid 1px #C5C5C5;
+    color: #444444;
 
+    font-family: "Open Sans", sans-serif;
 }
 
 .creation_textarea:hover{
