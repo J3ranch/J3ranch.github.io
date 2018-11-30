@@ -276,7 +276,9 @@ function search(search) {
 }
 
 function showSearch(results) {
-     if (results.length > 0) {
+    clearResults();
+
+    if (results.length > 0) {
         results.forEach(function(doc) {
             addScholarship(doc);
         });
