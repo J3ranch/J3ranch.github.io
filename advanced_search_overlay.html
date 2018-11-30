@@ -27,25 +27,25 @@
                 <input class="input-field" id="max-essay" type="number" min="0" placeholder="Ex: 2"/>
                 <select class="input-field" id="major" name="major">
                     <option value="" disabled selected hidden>Select a major...</option>
-                    <option value="comp-sci">Computer Science</option>
-                    <option value="elec-engr">Electrical Engineering</option>
-                    <option value="civil-engr">Civil Engineering</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
                 </select>
                 <select class="input-field" id="ethnicity" name="ethnicity">
                     <option value="" disabled selected hidden>Select ethnicity requirement...</option>
-                    <option value="any">Any</option>
-                    <option value="asian">Asian</option>
-                    <option value="black-african-american">Black or African American</option>
-                    <option value="hispanic-latino">Hispanic or Latino</option>
-                    <option value="white">White</option>
+                    <option value="Any">Any</option>
+                    <option value="Asian">Asian</option>
+                    <option value="Black African American">Black or African American</option>
+                    <option value="Hispanic Latino">Hispanic or Latino</option>
+                    <option value="White">White</option>
                 </select>
                 <input class="input-field" id="grad-year" type="number" min="2018" placeholder="Ex: 2020"/>
                 <select class="input-field" id="class-year" name="class-level">
                     <option value="" disabled selected hidden>Select your class level...</option>
-                    <option value="freshman">Freshman</option>
-                    <option value="sophomore">Sophomore</option>
-                    <option value="junior">Junior</option>
-                    <option value="senior">Senior</option>
+                    <option value="0">Freshman</option>
+                    <option value="1">Sophomore</option>
+                    <option value="2">Junior</option>
+                    <option value="3">Senior</option>
                 </select>
                 <select class="input-field" id="degree" name="degree">
                     <option value="" disabled selected hidden>Select your degree level...</option>
@@ -56,11 +56,11 @@
                 <input class="input-field" id="gpa-max" type="number" min="0" max="4" step="0.01" placeholder="Ex: 3.50"/>
                 <div class="radio-options" id="citizenship">
                     <label>
-                        <input type="radio" name="citizenship" value="Yes"/>
+                        <input type="radio" name="citizenship" value="true"/>
                         Yes
                     </label>
                     <label>
-                        <input type="radio" name="citizenship" value="No" />
+                        <input type="radio" name="citizenship" value="false" />
                         No
                     </label>
                 </div>
@@ -72,5 +72,7 @@
             <button class="button search-button">Search</button>
         </div>
     </div>
+
+    <script src="./advanced_search_overlay.js"></script>
 </body>
 </html>
