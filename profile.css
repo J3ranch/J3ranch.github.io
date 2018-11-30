@@ -5,11 +5,8 @@
     display: flex;
     margin:auto;
     background-color:white;
-    border: 1px solid #cccccc;
-    border-right:hidden;
-    border-left: hidden;
-    border-top:hidden; 
-    width:800px;
+    border-bottom: 1px solid #cccccc;
+    width:850px;
 }
 .custom_header{
     display: flex;
@@ -42,8 +39,8 @@ body {
     font-size: 350%;
     margin-left:50px;
     text-align:left;
-    height: 490px;
-    width: 760px;
+    height: 550px;
+    width: 850px;
 
     overflow-y: scroll;
 
@@ -51,7 +48,7 @@ body {
     border-color: gray;
 }
 
-span{
+.lebal{
     font-size: 23px;
     text-align: left;
     width: 140px;
@@ -106,7 +103,7 @@ input::-webkit-input-placeholder{
 }
 
 #err_container{
-    margin:auto;
+    margin-bottom:25px;
     height:20px;
     text-align:center;
     font-weight:bold;
@@ -131,7 +128,7 @@ input::-webkit-input-placeholder{
 .back_button{
     position: absolute;
     margin-top: 40px;
-    margin-left:600px;
+    margin-left:750px;
     background: rgba(255,255,255,0.6);
     width: 100px;
     text-align: center;
@@ -139,5 +136,11 @@ input::-webkit-input-placeholder{
     font-weight:  bold;
     font-size:25px;
     cursor:  pointer;
-    font-family: "Economica", sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pf_btn{
+    font-size:22px;
+    font-family: 'Open Sans', sans-serif;
+    
 }
