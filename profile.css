@@ -1,3 +1,6 @@
+
+@import url("https://fonts.googleapis.com/css?family=Economica:400,700|Open+Sans");
+
 .header{
     display: flex;
     background-color:white;
@@ -5,6 +8,7 @@
     border-right:hidden;
     border-left: hidden;
     border-top:hidden; 
+    width:700px;
 }
 .custom_header{
     display: flex;
@@ -19,83 +23,116 @@
     padding: 40px;
     font-family: Economica, serif;
 }
-.btn{
-    display: block;
-    background-color: #5884ff;
-    color: white;
-    width: 90px;
-    transform: translate(10%,-30%);
-    -ms-transform: translate(-50%, -50%);
-    border:none;
+
+body {
+	margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    font-family: "Economica", sans-serif;
+    
 }
+#main_container{
+    margin-top:10px;
+    margin-bottom:auto;
+}
+
+#profile_container{
+    font-size: 350%;
+    margin-left:50px;
+    text-align:left;
+    height: 490px;
+    width: 560px;
+
+    overflow-y: scroll;
+
+    border-bottom:2px solid;
+    border-color: gray;
+}
+
+span{
+    font-size: 23px;
+    text-align: left;
+    width: 140px;
+    display:inline-block;
+    
+}
+
+.profile_textarea{
+    width: 400px;
+    height: 40px;
+    line-height:40px;
+    font-size: 23px;
+    box-shadow: 3px 3px 3px #888888; 
+    
+}
+.profile_select{
+    width: 405px;
+    height: 40px;
+    line-height:40px;
+    font-size: 23px;
+    box-shadow: 3px 3px 3px #888888;  
+
+}
+
+.profile_textarea:hover{
+    background-color: lightgray;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+input::-webkit-input-placeholder{
+    font-size: 23px;
+    margin:center;
+    line-height:40px;
+}
+
+#profile_summit_btn_container{
+    font-size: 350%;
+    margin: auto;
+    text-align:center;
+    margin-bottom: 50px;
+}
+
+
+#profile_summit_btn {
+    width:250px;
+    height:45px;
+    font-size:25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#err_container{
+    margin:auto;
+    height:20px;
+    text-align:center;
+    font-weight:  bold;
+    font-size:22px;
+}
+.error-message-container {
+    margin:auto;
+    padding: 8px 10px;
+    border: 1px solid #B6232A;
+    background-color: #EFC6C3;
+    color: #B6232A;
+    text-align: center;
+    display: none;
+}
+
+.error, .error:focus {
+    border: 1px solid #B6232A;
+    background-color: #EFC6C3;
+}
+
 .back_button{
     position: absolute;
-    right: 50px;
-    top: 20px;
-    background-color:#62CB3B;
-    color:white;
-    width: 90px;
-    border:none;
-    cursor: pointer;
-    font-family: Open Sans, serif;
-    font-size: 16px;
-}
- .custom_body{
-    display:flex;
-    background-color:whitesmoke;
-    padding-top: 15px;
-    height: 250px;
-}
-table{
-    display: flex;
-    position: relative;
-    border-collapse: collapse;
-    overflow-y: scroll !important;
-    height: 250px;
-    }
-tr{
-    background-color: white;
-    text-align: left;
-    border: 1px solid #cccccc;
-    
-    border-right: hidden;
-    border-left:hidden;
-}
-td{
-    padding:10px;
-    width: 450px;
-}
-.custom_button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.edit_button{
-    
-}
-
-.cancel_button{
-    position: relative;
-    color:#4b4b4b;
-    background-color: #666666;
-    cursor: pointer;
-    width: 200px;
-    height: 25px;
-    margin: 25px;
-    border:none;
-    font-family: Open Sans, serif;
-    font-size: 14px;
-}
-.confirm_button{
-    position: block;
-    background-color:#274e13;
-    color:#b1b2b0;
-    cursor: pointer;
-    width: 200px;
-    height: 25px;
-    margin: 25px;
-    border:none;
-    font-family: Open Sans, serif;
-    font-size: 14px;
+    margin-top: 40px;
+    margin-left:600px;
+    background: rgba(255,255,255,0.6);
+    width: 100px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight:  bold;
+    font-size:25px;
+    cursor:  pointer;
+    font-family: "Economica", sans-serif;
 }

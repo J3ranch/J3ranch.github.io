@@ -8,10 +8,6 @@ var uID = thisURL.split('?')[1].split('uID=')[1];
 
 var User_id = uID;  //the id for current user;
 
-$( document ).ready(function(){
-
-});
-
 // for summit btn
 function summit(){
 
