@@ -9,29 +9,7 @@ var uID = thisURL.split('?')[1].split('uID=')[1];
 var User_id = uID;  //the id for current user;
 
 $( document ).ready(function(){
-    //autocomplete for Degree textbox
-    $( "#create_degree").autocomplete({
-        source: ["Associate of Arts (A.A.)","Associate of Science (A.S.)",
-        "Bachelor of Arts (B.A.)","Bachelor of Science degree (B.S.)",
-        "Master of Arts (M.A.)", "Master of Science (M.S.)","Ph.D"
-    ],
-        autoFocus: true,
-        select: function( event, ui ) {
-          //event.preventDefault();
-          document.getElementById("create_degree").value = ui.item.value    //sent the autocomplete value to "pr2__answer"
-        }
-    });
 
-    //autocomplete for Year textbox
-    $( "#create_Year").autocomplete({
-        source: ["Freshman","Sophomore","Junior","Senior"],
-        autoFocus: true,
-        select: function( event, ui ) {
-          //event.preventDefault();
-          document.getElementById("create_Year").value = ui.item.value    //sent the autocomplete value to "pr2__answer"
-        }
-    });
-    
 });
 
 // for summit btn
@@ -40,11 +18,11 @@ function summit(){
     errorDialog = document.getElementById("error-message");
     var FN = document.getElementById("create_firstName").value;
     var LN = document.getElementById("create_lastName").value;
-    var SH = document.getElementById("create_school").value;
     var MJ = document.getElementById("create_major").value;
-    var DG = document.getElementById("create_degree").value;
     var GYR = document.getElementById("create_graduationYear").value;
-    var YR = document.getElementById("create_Year").value;
+    var SH = document.getElementById("school_select").value;
+    var DG = document.getElementById("degree_select").value;
+    var YR = document.getElementById("year_select").value;
 
     if (FN.length === 0 || LN.length === 0) {
         console.log("Enter your First Name and/or Last Name");
