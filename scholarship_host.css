@@ -2,22 +2,31 @@
 
 
 #scholarship-modal {
-	top: 15vh;
+	position: absolute;
 	z-index: 10;
 
 	border: none;
 
 	padding: 0px;
+
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	background: rgba(0,0,0,0.5);
+
+	height: 100%;
+	width: 100%;
 }
 
-#scholarship-modal::backdrop {
+/*#scholarship-modal::backdrop {
 	position: fixed;
   	top: 0;
   	left: 0;
   	right: 0;
   	bottom: 0;
   	background-color: rgba(0, 0, 0, 0.5);
-}
+}*/
 
 #scholarship-iframe {
 	border: none;

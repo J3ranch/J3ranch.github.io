@@ -21,9 +21,7 @@ function sendByStudent(){
     var myDate = new Date();
     var chat_input = document.getElementById("chat_input");
 
-    if(chat_input.value==""){
-        //if user text is empty
-        alert("The text could not be empty!")
+    if(chat_input.value === null || chat_input.value.trim() === ''){
     }else{
         //save the content to firestore
         writeFirestore_chatHistory("Student",chat_input.value,myDate.toLocaleString())

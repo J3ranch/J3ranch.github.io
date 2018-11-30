@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     {
         console.log("Logged in");
         uID = user.uid;
-        document.getElementById("searchbar").value = uID;
+        document.getElementById("chat-iframe").setAttribute("src","./Xiaojian%20Chen/Chatting.html?uID="+uID);
     }
     else
     {
@@ -61,15 +61,36 @@ function applyButtons() {
     });
 
     document.getElementById("advanced-search").addEventListener("click", function(e) {
-        document.getElementById("advanced-search-modal").showModal();
+        document.getElementById("advanced-search-modal").style.display = "flex";
     });
 
     document.getElementById("advanced-search-modal").addEventListener("click", function(e) {
-        document.getElementById("advanced-search-modal").close();
+        document.getElementById("advanced-search-modal").style.display = "none";
     });
 
     document.getElementById("scholarship-modal").addEventListener("click", function(e) {
         closeOverlay();
+    });
+
+    document.getElementById("chat-minimize").addEventListener("click", function(e) {
+        if (document.getElementById("chat-minimize").getAttribute("state") == "open") {
+            document.getElementById("chat-body").style.display = "none";
+            document.getElementById("chat-minimize").style.border = "solid 2px white";
+            document.getElementById("chat-header").style.background = "#4A86E8";
+            document.getElementById("chat-minimize").setAttribute("title", "Maximize Chat");
+            document.getElementById("chat-minimize").setAttribute("state", "closed");
+        } else {
+            document.getElementById("chat-body").style.display = "flex";
+            document.getElementById("chat-minimize").style.border = "";
+            document.getElementById("chat-header").style.background = "gray";
+            document.getElementById("chat-minimize").setAttribute("title", "Minimize Chat");
+            document.getElementById("chat-minimize").setAttribute("state", "open");
+        }
+    });
+
+    document.getElementById("chat-close").addEventListener("click", function(e) {
+        document.getElementById("chat-modal").close();
+        document.getElementById("counselor-button").style.visibility = "visible";
     });
 }
 
@@ -127,7 +148,7 @@ function addScholarship(doc) {
     scholarship.appendChild(overview);
 
     scholarship.addEventListener("click", function(e) {
-        document.getElementById("scholarship-modal").showModal();
+        document.getElementById("scholarship-modal").style.display = "flex";
         document.getElementById("scholarship-iframe").setAttribute("src", "./scholarship_overlay.html?sid=" + e.target.closest(".scholarship").getAttribute("sid"));
     });
 
@@ -160,8 +181,8 @@ function onMessage(event) {
 
 // Function to be called from iframe
 function closeOverlay() {
-    document.getElementById("advanced-search-modal").close();
-    document.getElementById("scholarship-modal").close();
+    document.getElementById("advanced-search-modal").style.display = "none";
+    document.getElementById("scholarship-modal").style.display = "none";
     document.getElementById("scholarship-iframe").setAttribute("src", "")
 }
 
@@ -328,10 +349,9 @@ search({keywords:[]});
 
 //For open student chat window
 function openChat() { 
-    //var student_id ="";
-
-    window.open ('./Xiaojian%20Chen/Chatting.html'+'?uID='+uID,'newwindow',
-    'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')  
+    document.getElementById("chat-modal").show();
+    document.getElementById("counselor-button").style.visibility = "hidden";
+    document.getElementById("chat-minimize").setAttribute("state", "open");
 }
 
 

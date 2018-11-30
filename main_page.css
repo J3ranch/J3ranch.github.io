@@ -7,43 +7,132 @@
 }
 
 html, body {
-	min-height: 100%;
-	min-width: 100%;
-	height: 100%;
+	min-height: 100vh;
+	min-width: 100vw;
+	height: 100vh;
 
 	margin: 0px;
 
 	display: flex;
 	flex-flow: column;
+
+	overflow: hidden;
+}
+
+#chat-modal {
+	margin-right: 0;
+	bottom: 0px;
+	right: 0px;
+
+	z-index: 20;
+
+	height: fit-content;
+	width: 360px;
+
+	border: none;
+	padding: 0px;
+
+	box-shadow: 0px 1px 10px 1px #B9B9B9;
+}
+
+#chat-header {
+	background: gray;
+
+	font-family: "Economica", sans-serif;
+	font-size: 16pt;
+
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#chat-buttons {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#chat-buttons div:hover {
+	cursor: pointer;
+	filter: brightness(85%);
+}
+
+#chat-minimize {
+	margin: 0px 5px 0px 5px;
+
+	height: 14px;
+	width: 16px;
+
+	border-bottom: solid 2px white;
+}
+
+#chat-close {
+	margin: 0px 5px 0px 5px;
+
+	color: white;
+}
+
+#chat-header p {
+	margin: 0px;
+	padding: 2px 5px 2px 5px;
+	color: white;
+}
+
+#chat-body {
+	height: 454px;
+	min-height: 454px;
+}
+
+#chat-iframe {
+	height: 454px;
+	width: 100%;
+
+	border: none;
+
+	margin: 0px;
+	padding: 0px;
+}
+
+#chat-modal::backdrop {
 }
 
 #advanced-search-modal {
-	top: 15vh;
+	position: absolute;
 	z-index: 10;
 
+	border: none;
+
+	padding: 0px;
+
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	background: rgba(0,0,0,0.5);
+
+	height: 100%;
+	width: 100%;
+}
+
+#advanced-search-iframe {
 	border: none;
 
 	width: 40vw;
 	height: 70vh;
 
-	padding: 0px;
+	background: white;
 }
 
-#advanced-search-iframe {
-	width: 100%;
-	height: 100%;
-
-	border: none;
-}
-
-#advanced-search-modal::backdrop {
+/*#advanced-search-modal::backdrop {
 	position: fixed;
   	top: 0;
   	left: 0;
   	right: 0;
   	bottom: 0;
   	background-color: rgba(0, 0, 0, 0.5);
-}
+}*/
 
 #header-container {
 	display: flex;

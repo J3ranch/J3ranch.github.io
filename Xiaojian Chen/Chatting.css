@@ -1,9 +1,19 @@
 /*Xiaojan Chen 905118702*/
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-color: #eee;
     font-family: 'Open Sans', sans-serif;
+
+    margin: 0;
 }
 
+td {
+    height: fit-content;
+}
 
 #chat_open_btn{
     width:250px;
@@ -15,12 +25,7 @@ body {
 
 #main_container{
     width:360px;
-    height:450px;
-    border:2px solid;
-    border-color: gray;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    box-shadow: 3px 3px 3px gray
+    height: fit-content;
 }
 
 #chat_head{
@@ -28,6 +33,9 @@ body {
     background-color: gray;
     border-bottom:2px solid;
     border-color:gray;    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 #chat_head_text{
     
@@ -39,7 +47,13 @@ body {
 
 #clear_btn{
     font-size:12px;
-    margin-bottom:5px;
+    font-family: "Open Sans", sans-serif;
+
+    margin: 0px 5px 0px 5px;
+    padding: 2px 5px 2px 5px;
+
+    background: white;
+
     width: 100px;
     height: 25px;
     border-color:gray;
@@ -54,16 +68,21 @@ body {
 }
 
 #chat_bottom{
-    height:67px;
+    height: 70px;
     background-color: gray;
     border-top:2px solid;
     border-color:gray;
-    
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #chat_input{
-    margin-top:3px;
-    margin-bottom:3px;
+    margin: 0px;
+    padding: 2px;
+
     width:280px;
     height: 50px;
     font-size:20px;
@@ -76,7 +95,9 @@ body {
 }
 
 #chat_send_btn{
-    margin-left:5px;
+    margin: 0px;
+    padding: 0px;
+
     width: 50px;
     height: 50px;
     border-color:gray;
@@ -115,4 +136,9 @@ body {
     border-radius:10px;
     color:#fff;
     padding:5px 10px;
+}
+
+#input {
+    width: fit-content;
+    height: 58px;
 }

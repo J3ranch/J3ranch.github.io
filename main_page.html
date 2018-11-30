@@ -27,11 +27,21 @@
 
 </head>
 <body>
-	<dialog id="advanced-search-modal">
+	<div id="advanced-search-modal">
 		<iframe id="advanced-search-iframe" src="./advanced_search_overlay.html"></iframe>
-	</dialog>
-	<dialog id="scholarship-modal">
+	</div>
+	<div id="scholarship-modal">
 		<iframe id="scholarship-iframe" src=""></iframe>
+	</div>
+	<dialog id="chat-modal">
+		<div id="chat-header">
+			<p>Chat with a Counselor</p>
+			<div id="chat-buttons">
+				<div id="chat-minimize" state="closed" title="Minimize Chat"></div>
+				<div id="chat-close" title="Close Chat">&#x2715;</div>
+			</div>
+		</div>
+		<div id="chat-body"><iframe id="chat-iframe" src=""></iframe></div>
 	</dialog>
 
 	<div id="header-container">
