@@ -51,6 +51,7 @@ function applyButtons() {
     document.getElementById("reset-search").addEventListener("click", function(e) {
         document.getElementById("no-results").style.display = "none";
         document.getElementById("searchbar").value = ""
+        document.getElementById("advanced-search-iframe").src = document.getElementById("advanced-search-iframe").src;
         search({keywords:[]});
     });
 
@@ -150,13 +151,17 @@ function onMessage(event) {
 
     var data = event.data;
 
-    if (typeof(window[data.func]) == "function") {
-        window[data.func].call();
+    if (typeof data.func === "number") {
+        switch(data.func) {
+            case 0: closeOverlay(); break;
+            case 1: closeOverlay(); document.getElementById("searchbar").value = JSON.stringify(data.params); search(data.params); break;
+        }
     }
 }
 
 // Function to be called from iframe
 function closeOverlay() {
+    document.getElementById("advanced-search-modal").close();
     document.getElementById("scholarship-modal").close();
     document.getElementById("scholarship-iframe").setAttribute("src", "")
 }
@@ -208,7 +213,7 @@ function search(search) {
     var provider = (search.hasOwnProperty("provider") && typeof search.provider === "string") ? search.provider : "Any";
     var ethnicity = (search.hasOwnProperty("ethnicity") && typeof search.ethnicity === "string") ? search.ethnicity : "Any";
     var gradYear = (search.hasOwnProperty("grad_year") && typeof search.grad_year === "number") ? search.grad_year : 0;
-    var year = (search.hasOwnProperty("year") && typeof search.year === "number") ? search.year : 9999;
+    var classLevel = (search.hasOwnProperty("class_level") && typeof search.class_level === "number") ? search.class_level : 9999;
     var degree = (search.hasOwnProperty("degree") && typeof search.degree === "number") ? search.degree : 0;
     var maxGPA = (search.hasOwnProperty("max_gpa") && typeof search.max_gpa === "number") ? search.max_gpa : 10;
     var citizenship = (search.hasOwnProperty("citizenship") && typeof search.citizenship === "boolean") ? search.citizenship : 0; 
@@ -235,7 +240,7 @@ function search(search) {
             if (major !== "All" && doc.data().requirements.major !== "All" && doc.data().requirements.major !== major) return;
             if (provider !== "Any" && doc.data().provider !== provider) return;
             if (doc.data().requirements.grad_year < gradYear) return;
-            if (doc.data().requirements.year > year) return;
+            if (doc.data().requirements.class_level > classLevel) return;
             if (doc.data().requirements.degree > degree) return;
             if (doc.data().requirements.gpa > maxGPA) return;
             if (citizenship !== 0 && doc.data().requirement.citizenship !== citizenship) return;
@@ -263,6 +268,18 @@ function search(search) {
                     if (!results.includes(doc))
                         results.push(doc); return;
                 }
+                else if (doc.data().provider.toLowerCase().includes(term.toLowerCase())) {
+                    if (!results.includes(doc))
+                        results.push(doc); return;
+                }
+                /*else if (doc.data().requirements.ethnicity.toLowerCase().includes(term.toLowerCase())) {
+                    if (!results.includes(doc))
+                        results.push(doc); return;
+                }
+                else if (doc.data().requirements.major.toLowerCase().includes(term.toLowerCase())) {
+                    if (!results.includes(doc))
+                        results.push(doc); return;
+                }*/
             });
         });
     })

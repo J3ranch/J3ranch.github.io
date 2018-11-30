@@ -7,9 +7,6 @@
 
 	border: none;
 
-	width: 65vw;
-	height: 70vh;
-
 	padding: 0px;
 }
 
@@ -23,8 +20,10 @@
 }
 
 #scholarship-iframe {
-	width: 100%;
-	height: 100%;
-
 	border: none;
+
+	min-width: 65vw;
+	width: 65vw;
+	min-height: 70vh;
+	height: 70vh
 }
