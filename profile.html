@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Your Profile</title>
+	<link href="./profile.css" rel="stylesheet" />
+	<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Economica|Open Sans">
+</head>
+<body>
+	<script src="./Xiaojian%20Chen/Initialize_Firebase.js"></script> <!--Initialize FireBase-->
+
+
+<div class="header">
+     	<div class="custom_header">
+    			<div class="avatar">
+       			<i class="fas fa-user-circle fa-7x"></i>
+        		</div>
+        		<div class="title">YOUR PROFILE</div>
+		</div>
+	<button class="back_button" onclick="goback()">GO BACK</button>
+</div>
+<div class="custom_body">
+		<table>
+        	<tr>
+            	<td>First Name:</td>
+            	<td class="textarea_field">
+					<input class="textarea" type="text" id="firstName">
+				</td>
+        	</tr>	
+			<tr>
+				<td>Last Name:</td>
+				<td class="textarea_field">
+					<input class="textarea" type="text" id="lastName">
+				</td>
+			</tr>
+			<tr>
+				<td>School</td>
+				<td class="textarea_field">
+					<input class="textarea" type="text" id="school">
+				</td>
+			</tr>
+			<tr>
+				<td>Degree</td>
+				<td class="textarea_field">
+					<input class="textarea" type="text" id="degree">
+				</td>
+			</tr>
+			<tr>
+				<td>Graduation Year</td>
+				<td class="textarea_field">
+					<input class="textarea" type="text" id="raduationYear">
+				</td>
+			</tr>
+			<tr>
+				<td>Year</td>
+				<td class="textarea_field">
+					<input class="textarea" type="text" id="year">
+				</td>
+			</tr>
+		</table>
+</div>
+<div class="custom_button">
+		<button class="edit_button">EDIT</button>
+		<button class="cancel_button">CANCEL CHANGES</button>
+		<button class="confirm_button">CONFIRM CHANGES</button>
+	</div>
+
+
+	<script src="./profile.js"></script>
+</body>
+</html>

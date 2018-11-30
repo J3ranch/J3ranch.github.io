@@ -319,3 +319,9 @@ function openChat() {
     window.open ('./Xiaojian%20Chen/Chatting.html'+'?uID='+uID,'newwindow',
     'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')  
 }
+
+
+//Profile page
+function Profile(){
+    location.href='./profile.html'+'?uID='+uID
+}
