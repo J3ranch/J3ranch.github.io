@@ -27,12 +27,12 @@ function renderStudent(doc){
     name.innerHTML = "<i class='fas fa-user'></i>  " +doc.data().First_Name+" "+doc.data().Last_Name;
     school.innerHTML = "<i class='fas fa-angle-right'></i>  "+"School: " +doc.data().School;
     major.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Major: " +doc.data().Major;
-    degree.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Degree: " +doc.data().Degree;
+    degree.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Degree: " +degreecheck(doc.data().Degree);
     graduation_year.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Graduation Year: " +doc.data().Graduation_Year;
-    class_level.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Class Level: " +doc.data().Class_Level;
+    class_level.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Class Level: " +classLevelcheck(doc.data().Class_Level);
     gpa.innerHTML = "<i class='fas fa-angle-right'></i>  "+"GPA: " +doc.data().GPA;
-    ethnicity.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Ethnicity: " +doc.data().Ethnicity;
-    us_citizenship.innerHTML = "<i class='fas fa-angle-right'></i>  "+"US Citizenship: " +doc.data().US_Citizenship;
+    ethnicity.innerHTML = "<i class='fas fa-angle-right'></i>  "+"Ethnicity: " +ethnicitycheck(doc.data().Ethnicity);
+    us_citizenship.innerHTML = "<i class='fas fa-angle-right'></i>  "+"US Citizenship: " +usCitizenshipcheck(doc.data().US_Citizenship);
 
 
     chatButton.innerHTML = 'Chat';
@@ -76,4 +76,60 @@ firestore.collection('users').orderBy('Last_Name').onSnapshot(snapshot => {
     });
 });
 
-  
+//check degree
+function degreecheck (doc){
+    var r="";
+    if (doc==0){
+        r = "Bachelor's Degree";
+    }else if (doc==1){
+        r = "Master's Degree";
+    }else if (doc==2){
+        r = "Ph.D";
+    }else{
+        r = "Other";
+    }
+
+    return r;
+}  
+
+//check classlevel
+function classLevelcheck (doc){
+    var r="";
+    if (doc==0){
+        r = "Freshman";
+    }else if (doc==1){
+        r = "Sophomore";
+    }else if (doc==2){
+        r = "Junior"
+    }else if (doc==3){
+        r = "Senior";
+    }
+    else{
+        r = "Other";
+    }
+
+    return r;
+}  
+
+//check US Citizenship
+function usCitizenshipcheck(doc){
+    var r="";
+    if (doc=="true"){
+        r = "Yes";
+    }else{
+        r = "No";
+    }
+
+    return r;
+}
+
+//check Ethnicity
+function ethnicitycheck(doc){
+    var r="";
+    if(doc=="Any"){
+        r = "Other";
+    }else{
+        r = doc;
+    }
+    return r;
+}
