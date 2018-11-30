@@ -3,12 +3,13 @@
 
 .header{
     display: flex;
+    margin:auto;
     background-color:white;
     border: 1px solid #cccccc;
     border-right:hidden;
     border-left: hidden;
     border-top:hidden; 
-    width:700px;
+    width:800px;
 }
 .custom_header{
     display: flex;
@@ -25,6 +26,7 @@
 }
 
 body {
+    margin-top: 50px;
 	margin-left: auto;
     margin-right: auto;
     width: 50em;
@@ -41,7 +43,7 @@ body {
     margin-left:50px;
     text-align:left;
     height: 490px;
-    width: 560px;
+    width: 760px;
 
     overflow-y: scroll;
 
@@ -58,7 +60,7 @@ span{
 }
 
 .profile_textarea{
-    width: 400px;
+    width: 600px;
     height: 40px;
     line-height:40px;
     font-size: 23px;
@@ -66,7 +68,7 @@ span{
     
 }
 .profile_select{
-    width: 405px;
+    width: 605px;
     height: 40px;
     line-height:40px;
     font-size: 23px;

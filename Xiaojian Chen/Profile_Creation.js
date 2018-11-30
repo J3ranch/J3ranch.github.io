@@ -18,7 +18,10 @@ function summit(){
     var GYR = document.getElementById("create_graduationYear").value;
     var SH = document.getElementById("school_select").value;
     var DG = document.getElementById("degree_select").value;
-    var YR = document.getElementById("year_select").value;
+    var CL = document.getElementById("classLevel_select").value;
+    var GPA = document.getElementById('create_gpa').value;
+    var Eth = document.getElementById('ethnicity_select').value;
+    var USC = document.getElementById('us_citizenship_select').value
 
     if (FN.length === 0 || LN.length === 0) {
         console.log("Enter your First Name and/or Last Name");
@@ -28,7 +31,7 @@ function summit(){
         document.getElementById("create_lastName").classList.add("error");
         
     }else{
-        writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, YR);
+        writeFirestore_profile(User_id, FN, LN, SH, MJ, DG, GYR, CL,GPA,Eth,USC);
         setTimeout(function(){
             window.location.href ='../main_page.html'+'?uID='+uID;  //jump to main page, pass uID via URL
         },1000); //the timer is for uploading the profile to firestore
@@ -38,7 +41,7 @@ function summit(){
 }
 
 //write the profile to firestore
-function writeFirestore_profile(id, firstName, lastName, school, major, degree, graduationYear, year){
+function writeFirestore_profile(id, firstName, lastName, school, major, degree, graduationYear, classLevel, gpa, ethnicity, us_citizenship){
     var ref = firestore.collection("users").doc(id)
     ref.set({
         First_Name: firstName,
@@ -47,7 +50,10 @@ function writeFirestore_profile(id, firstName, lastName, school, major, degree, 
         Major: major,
         Degree: degree,
         Graduation_Year: graduationYear,
-        Year: year
+        Class_Level: classLevel,
+        GPA: gpa,
+        Ethnicity: ethnicity,
+        US_Citizenship: us_citizenship
     })
     console.log("Profile Creation Saved!");
 }
