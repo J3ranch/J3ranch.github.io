@@ -60,7 +60,7 @@ function submit() {
   } else if (LN.length == 0) {
     document.getElementById("error-message-container").style.display = "inline-block";
     errorDialog.textContent = "Please enter your last name";
-    document.getElementById("create_firstName").classList.add("error");
+    document.getElementById("create_lastName").classList.add("error");
   } else if (MJ.length == 0) {
     document.getElementById("error-message-container").style.display = "inline-block";
     errorDialog.textContent = "Please enter your major";
@@ -73,6 +73,26 @@ function submit() {
     document.getElementById("error-message-container").style.display = "inline-block";
     errorDialog.textContent = "Please enter a valid GPA (0-4)";
     document.getElementById("create_gpa").classList.add("error");
+  }else if(SH=="School"){
+    document.getElementById("error-message-container").style.display = "inline-block";
+    errorDialog.textContent = "Please Select your School";
+    document.getElementById("school_select").classList.add("error");
+  }else if(DG=="Degree"){
+    document.getElementById("error-message-container").style.display = "inline-block";
+    errorDialog.textContent = "Please Select your Degree";
+    document.getElementById("degree_select").classList.add("error");
+  }else if(CL=="Class Level"){
+    document.getElementById("error-message-container").style.display = "inline-block";
+    errorDialog.textContent = "Please Select your Class Level";
+    document.getElementById("classLevel_select").classList.add("error");
+  }else if(Eth=="Ethnicity"){
+    document.getElementById("error-message-container").style.display = "inline-block";
+    errorDialog.textContent = "Please Select your Ethnicity";
+    document.getElementById("ethnicity_select").classList.add("error");
+  }else if(USC=="US Citizenship"){
+    document.getElementById("error-message-container").style.display = "inline-block";
+    errorDialog.textContent = "Please Select your US Citizenship status";
+    document.getElementById("us_citizenship_select").classList.add("error");
   } else {
     writeFirestore_profile(uID, FN, LN, SH, MJ, DG, GYR, CL, GPA, ETH, USC);
     setTimeout(function () {
