@@ -60,7 +60,7 @@ function renderStudent(doc){
 
         //open chat window, passing student id and name via url
         window.open ('./Chatting-forCounselor.html'+'?uID='+chat_student_id+"?uFNAME="+chat_student_FName+"?uLNAME="+chat_student_LName,'newwindow',
-        'height=470,width=380,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')
+        'height=470,width=370,top=0,left=0,toolbar=no,menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     })
 }
 
