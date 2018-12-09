@@ -124,6 +124,7 @@ function addScholarship(doc) {
         day: "numeric"
     });
 
+    var row = document.createElement("tr");
     var scholarship = document.createElement("div"); 
     scholarship.setAttribute("class", "scholarship"); scholarship.setAttribute("sid", doc.data().sid); scholarship.setAttribute("tabIndex", "0");
     var imageContainer = document.createElement("div"); imageContainer.setAttribute("class", "scholarship-img");
@@ -164,7 +165,9 @@ function addScholarship(doc) {
         }
     });
 
-    document.getElementById("results-table").appendChild(scholarship);
+    row.appendChild(scholarship);
+
+    document.getElementById("results-table").appendChild(row);
 }
 
 function onMessage(event) {
@@ -251,7 +254,7 @@ function search(search) {
     }, 10000);
 
     db.collection("scholarships")
-    .orderBy("award", "desc")
+    .orderBy("award")
     .get().then(function(query) {
         query.forEach(function(doc) {
             // Deadline Filter

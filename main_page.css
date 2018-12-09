@@ -4,6 +4,8 @@
 	font-family: "Economica", sans-serif;
 	min-width: fit-content;
 	min-height: fit-content;
+	min-width: -moz-fit-content;
+	min-height: -moz-fit-content;
 }
 
 html, body {
@@ -93,9 +95,6 @@ html, body {
 
 	margin: 0px;
 	padding: 0px;
-}
-
-#chat-modal::backdrop {
 }
 
 #advanced-search-modal {
@@ -267,7 +266,7 @@ html, body {
 	font-size: 16pt;
 }
 
-#results-container {
+#body-container {
 	min-height: fit-content;
 	flex-grow: 8;
 
@@ -277,7 +276,7 @@ html, body {
 	align-items: center;
 }
 
-#results-table {
+#results-container {
 	min-height: 60vh;
 	height: 60vh;
 	width: 60vw;
@@ -296,9 +295,13 @@ html, body {
     flex-flow: column;
 }
 
+#results-table {
+	width: 100%;
+	
+	border: none;
+}
+
 .scholarship {
-	height: 35%;
-	max-height: 35%;
 	width: 100%;
 
 	background: white;
@@ -310,7 +313,7 @@ html, body {
 	justify-content: center;
 	align-items: center;
 
-	overflow: hidden;
+	overflow: auto;
 	z-index: 1;
 }
 
@@ -339,7 +342,6 @@ html, body {
 }
 
 .scholarship-overview {
-	height: 100%;
 	width: 70%;
 }
 
